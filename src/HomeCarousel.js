@@ -9,10 +9,11 @@ class IndexCarousel extends Component {
   render() {
     const myCaption1 = {
       color: "white",
-      padding: "10px",
+      fontSize: "1.4vw",
+      padding: "1vw",
       fontFamily: "Arial",
-      marginBottom: "6%",
-      width: "60%",
+      marginBottom: "4vw",
+      width: "40vw",
       float: "right",
       textAlign: "left",
       borderRadius: "25px",
@@ -20,12 +21,17 @@ class IndexCarousel extends Component {
       background: "rgba(105, 147, 186, 0.3)",
     };
 
+    const h1Size = {
+      fontSize: "2.4vw",
+    };
+
     const myCaption3 = {
       color: "white",
-      padding: "10px",
+      fontSize: "1.4vw",
+      padding: "1vw",
       fontFamily: "Arial",
-      marginBottom: "6%",
-      width: "50%",
+      marginBottom: "1vw",
+      width: "40vw",
       float: "left",
       textAlign: "left",
       borderRadius: "25px",
@@ -35,62 +41,95 @@ class IndexCarousel extends Component {
 
     const myCaption2 = {
       color: "white",
-      padding: "10px",
+      padding: "1vw",
       fontFamily: "Arial",
-      marginBottom: "6%",
+      fontSize: "1.4vw",
+      marginBottom: "1vw",
       margin: "auto",
-      width: "60%",
+      width: "40vw",
       borderRadius: "25px",
       border: "2px solid #96dcf8",
       background: "rgba(105, 147, 186, 0.3)",
     };
 
-    const emoji = { fontSize: "30px" };
+    const carouselButtons = {
+      width: "auto",
+      fontSize: "1.4vw",
+    };
+
+    const emoji = { fontSize: "1.4vw" };
+    const carouselImg = { minHeight: "34vw" };
 
     return (
       <Carousel>
         <Carousel.Item interval={5000}>
-          <img className="d-block w-100" src={niagraPic} alt="Third slide" />
+          <img
+            style={carouselImg}
+            className="d-block w-100"
+            src={niagraPic}
+            alt="Third slide"
+          />
           <Carousel.Caption>
             <div style={myCaption1}>
-              <h1>Welcome,</h1>
+              <h1 style={h1Size}>Welcome,</h1>
               <div>
                 <p>
                   I am a Senior Software Engineer interested in automation,
                   artificial intelligence, and maximizing user experiences. I
                   also love traveling <span style={emoji}>&#128747;</span>
                 </p>
-                <Button variant="primary">Learn More</Button>{" "}
-                <Button variant="warning">View Resume</Button>{" "}
+                <Button style={carouselButtons} variant="primary">
+                  Learn More
+                </Button>{" "}
+                <Button style={carouselButtons} variant="warning">
+                  View Resume
+                </Button>{" "}
               </div>
             </div>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={5000}>
-          <img className="d-block w-100" src={barcelonaPic} alt="Third slide" />
+          <img
+            style={carouselImg}
+            className="d-block w-100"
+            src={barcelonaPic}
+            alt="Third slide"
+          />
           <Carousel.Caption>
             <div style={myCaption2}>
-              <h3>Full Stack Developer</h3>
+              <h1 style={h1Size}>Full Stack Developer</h1>
               <p>
                 I have a masters in computer engineering as well as a diverse
                 technical background ranging from low level control systems
                 testing to full stack application development
               </p>
-              <Button variant="primary">Interactive Portfolio</Button>{" "}
-              <Button variant="warning">Other Projects</Button>{" "}
+              <Button style={carouselButtons} variant="primary">
+                Interactive Portfolio
+              </Button>{" "}
+              <Button style={carouselButtons} variant="warning">
+                Other Projects
+              </Button>{" "}
             </div>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={5000}>
-          <img className="d-block w-100" src={mtFujiPic} alt="First slide" />
+          <img
+            style={carouselImg}
+            className="d-block w-100"
+            src={mtFujiPic}
+            alt="First slide"
+          />
           <Carousel.Caption>
             <div style={myCaption3}>
-              <h3>Thanks for Visiting!</h3>
+              <h1 style={h1Size}>Thanks for Visiting!</h1>
               <p>
                 Please feel free to reach out on linkedIn or by clicking below.
-                I am always looking for new challenging opportunities.
+                I am always looking forward to new and challenging
+                opportunities.
               </p>
-              <Button variant="warning">Contact Me</Button>{" "}
+              <Button style={carouselButtons} variant="warning">
+                Contact Me
+              </Button>{" "}
             </div>
           </Carousel.Caption>
         </Carousel.Item>

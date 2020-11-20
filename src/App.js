@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import ChessPiece from "./chessPiece";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
@@ -9,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import HeadNavBar from "./NavBar";
 import IndexCarousel from "./HomeCarousel";
+import IndexCards from "./IndexCards";
 
 class App extends Component {
   constructor(props) {
@@ -36,6 +36,10 @@ class App extends Component {
         <div>
           <IndexCarousel />
         </div>
+        <div>
+          <IndexCards></IndexCards>
+        </div>
+        <br></br>
       </div>
     );
   }
