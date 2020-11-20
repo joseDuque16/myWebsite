@@ -12,7 +12,7 @@ class HeadNavBar extends Component {
       // Link to home with href
       <Navbar bg="dark" variant="dark" expand="lg">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Brand href="/About">
+        <Navbar.Brand href="/">
           {" "}
           <img
             alt=""
@@ -25,7 +25,7 @@ class HeadNavBar extends Component {
         </Navbar.Brand>
         <Navbar.Collapse>
           <Nav className="mr-auto">
-            <Nav.Link href="/About"> About Me </Nav.Link>
+            <Nav.Link href="/"> About Me </Nav.Link>
             <Nav.Link href="/Resume"> Resume </Nav.Link>
             <Nav.Link href="/Portfolio"> Portfolio </Nav.Link>
             <Nav.Link href="/Projects"> Projects </Nav.Link>

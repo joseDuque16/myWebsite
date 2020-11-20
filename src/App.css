@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.globalText {
+  font-size: 1.2vw;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +39,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.indexCardDiv {
+  font-size: 1.2vw;
+  background-color: rgb(124, 183, 235);
+  justify-content: left;
+}
+
+.roundedDiv {
+  border-radius: 25px;
+  border-color: #96dcf8;
+  background: rgba(105, 147, 186, 0.3);
 }

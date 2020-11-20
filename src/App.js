@@ -9,6 +9,7 @@ import Col from "react-bootstrap/Col";
 import HeadNavBar from "./NavBar";
 import IndexCarousel from "./HomeCarousel";
 import IndexCards from "./IndexCards";
+import Footer from "./Footer";
 
 class App extends Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class App extends Component {
           <IndexCards></IndexCards>
         </div>
         <br></br>
+        <Footer></Footer>
       </div>
     );
   }

@@ -9,7 +9,7 @@ class IndexCarousel extends Component {
   render() {
     const myCaption1 = {
       color: "white",
-      fontSize: "1.4vw",
+      fontSize: "1.2vw",
       padding: "1vw",
       fontFamily: "Arial",
       marginBottom: "1vw",
@@ -27,7 +27,7 @@ class IndexCarousel extends Component {
 
     const myCaption3 = {
       color: "white",
-      fontSize: "1.4vw",
+      fontSize: "1.2vw",
       padding: "1vw",
       fontFamily: "Arial",
       marginBottom: "1vw",
@@ -43,7 +43,7 @@ class IndexCarousel extends Component {
       color: "white",
       padding: "1vw",
       fontFamily: "Arial",
-      fontSize: "1.4vw",
+      fontSize: "1.2vw",
       marginBottom: "1vw",
       margin: "auto",
       width: "40vw",
