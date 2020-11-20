@@ -1,8 +1,14 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import ChessPiece from "./chessPiece";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import HeadNavBar from "./NavBar";
+import IndexCarousel from "./HomeCarousel";
 
 class App extends Component {
   constructor(props) {
@@ -24,17 +30,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1> yoo wtf</h1>
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <Router>
-          <ChessPiece />
-          <Route path="/yo" component={ChessPiece} />
-          <Route path="/yo" component={ChessPiece} />
-        </Router>
-        <p className="App-intro">;{this.state.apiResponse}</p>
+        <div>
+          <HeadNavBar />
+        </div>
+        <div>
+          <IndexCarousel />
+        </div>
       </div>
     );
   }
