@@ -3,10 +3,12 @@ import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
+import Tab from "react-bootstrap/Tab";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import IndexCardLink from "./IndexCardLink";
 
 class MyCard extends Component {
   constructor(props) {
@@ -20,6 +22,9 @@ class MyCard extends Component {
   render() {
     const h4Style = {
       paddingTop: "1vw",
+    };
+    const pStyle = {
+      fontSize: "1.6vw",
     };
 
     return (
@@ -44,7 +49,7 @@ class MyCard extends Component {
           </svg>
           <h4 style={h4Style}> {this.state.header} </h4>
           <hr></hr>
-          <p> {this.state.text} </p>
+          <p style={pStyle}> {this.state.text} </p>
         </div>
       </Col>
     );
@@ -52,69 +57,122 @@ class MyCard extends Component {
 }
 
 class IndexCard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      selected: "first",
+      selectedLink1: true,
+      selectedLink2: false,
+      selectedLink3: false,
+    };
+  }
+
+  tabSelected = (eventKey) => {
+    this.setState({ selected: eventKey });
+    switch (eventKey) {
+      case "first":
+        this.setState({
+          selectedLink1: true,
+          selectedLink2: false,
+          selectedLink3: false,
+        });
+        break;
+      case "second":
+        this.setState({
+          selectedLink1: false,
+          selectedLink2: true,
+          selectedLink3: false,
+        });
+        break;
+      case "third":
+        this.setState({
+          selectedLink1: false,
+          selectedLink2: false,
+          selectedLink3: true,
+        });
+        break;
+      default:
+        console.log("error selected a tab that doesnt exist");
+        break;
+    }
+    return;
+  };
+
   render() {
-    const cardStyle = {
+    const navContainer = {
+      margin: "auto",
+      marginBottom: "2vw",
+      backgroundColor: "#484f57",
+    };
+    const tabContainer = {
+      margin: "auto",
+    };
+    const container = {
+      borderRadius: "25px",
       width: "95%",
       margin: "auto",
-      marginTop: "2vw",
     };
+
     return (
-      <Card style={cardStyle}>
-        <Card.Header>
+      <div style={container}>
+        <Tab.Container defaultActiveKey="first">
           <Nav
+            style={navContainer}
             className="justify-content-center"
             variant="tabs"
-            defaultActiveKey="#first"
+            onSelect={this.tabSelected}
           >
             <Nav.Item>
-              <Nav.Link href="/">Tech Skills</Nav.Link>
+              <IndexCardLink
+                eventKey="first"
+                p="Tech skillz"
+                select={this.state.selectedLink1}
+              ></IndexCardLink>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/ExperienceTab">Experience</Nav.Link>
+              <IndexCardLink
+                eventKey="second"
+                p="Experience"
+                select={this.state.selectedLink2}
+              ></IndexCardLink>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/SoftSkillsTab">Soft Skills</Nav.Link>
+              <IndexCardLink
+                eventKey="third"
+                p="Soft skillz"
+                select={this.state.selectedLink3}
+              ></IndexCardLink>
             </Nav.Item>
           </Nav>
-        </Card.Header>
-        <Card.Body>
-          <Router>
-            <Switch>
-              <Route path="/ExperienceTab" exact>
-                <Container>
-                  <Row>
-                    <MyCard header="BAE Systems"></MyCard>
-                    <MyCard header="BAE Systems" text="pietext"></MyCard>
-                    <MyCard header="Intel" text="pietext"></MyCard>
-                  </Row>
-                </Container>
-              </Route>
-            </Switch>
-            <Switch>
-              <Route path="/SoftSkillsTab" exact>
-                <Container>
-                  <Row>
-                    <MyCard header="Leadership"></MyCard>
-                    <MyCard header="Service" text="pietext"></MyCard>
-                    <MyCard header="Other" text="pietext"></MyCard>
-                  </Row>
-                </Container>
-              </Route>
-            </Switch>
-            <Switch>
-              <Route path="/" exact>
-                <Container>
-                  <Row>
-                    <MyCard header="Languages"></MyCard>
-                    <MyCard header="Frontend" text="pietext"></MyCard>
-                    <MyCard header="Backend" text="pietext"></MyCard>
-                  </Row>
-                </Container>
-              </Route>
-            </Switch>
-          </Router>
-        </Card.Body>
-      </Card>
+          <Tab.Content style={tabContainer}>
+            <Tab.Pane eventKey="first">
+              <Row>
+                <MyCard header="Languages"></MyCard>
+                <MyCard header="Frontend" text="pietext"></MyCard>
+                <MyCard header="Backend" text="pietext"></MyCard>
+              </Row>
+            </Tab.Pane>
+          </Tab.Content>
+          <Tab.Content style={tabContainer}>
+            <Tab.Pane eventKey="second">
+              <Row>
+                <MyCard header="BAE Systems"></MyCard>
+                <MyCard header="BAE Systems" text="pietext"></MyCard>
+                <MyCard header="Intel" text="pietext"></MyCard>
+              </Row>
+            </Tab.Pane>
+          </Tab.Content>
+          <Tab.Content style={tabContainer}>
+            <Tab.Pane eventKey="third">
+              <Row>
+                <MyCard header="Leadership"></MyCard>
+                <MyCard header="Service" text="pietext"></MyCard>
+                <MyCard header="Other" text="pietext"></MyCard>
+              </Row>
+            </Tab.Pane>
+          </Tab.Content>
+        </Tab.Container>
+      </div>
     );
   }
 }

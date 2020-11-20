@@ -31,15 +31,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
-          <HeadNavBar />
-        </div>
-        <div>
-          <IndexCarousel />
-        </div>
-        <div>
-          <IndexCards></IndexCards>
-        </div>
+        <HeadNavBar />
+        <IndexCarousel />
+        <br></br>
+        <IndexCards></IndexCards>
         <br></br>
         <Footer></Footer>
       </div>

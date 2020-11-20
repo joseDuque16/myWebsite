@@ -10,29 +10,16 @@ class IndexCarousel extends Component {
     const myCaption1 = {
       color: "white",
       fontSize: "1.2vw",
-      padding: "1vw",
+      padding: ".4vw",
+      paddingTop: ".8vw",
+      paddingBottom: ".8vw",
+      margin: "auto",
       fontFamily: "Arial",
       marginBottom: "1vw",
-      width: "40vw",
+      width: "600px",
+      minWidth: "50%",
+      maxWidth: "80%",
       float: "right",
-      textAlign: "left",
-      borderRadius: "25px",
-      border: "2px solid #96dcf8",
-      background: "rgba(105, 147, 186, 0.3)",
-    };
-
-    const h1Size = {
-      fontSize: "2.4vw",
-    };
-
-    const myCaption3 = {
-      color: "white",
-      fontSize: "1.2vw",
-      padding: "1vw",
-      fontFamily: "Arial",
-      marginBottom: "1vw",
-      width: "40vw",
-      float: "left",
       textAlign: "left",
       borderRadius: "25px",
       border: "2px solid #96dcf8",
@@ -41,27 +28,61 @@ class IndexCarousel extends Component {
 
     const myCaption2 = {
       color: "white",
-      padding: "1vw",
+      padding: ".4vw",
+      paddingTop: ".8vw",
+      paddingBottom: ".8vw",
       fontFamily: "Arial",
       fontSize: "1.2vw",
       marginBottom: "1vw",
+      width: "700px",
       margin: "auto",
-      width: "40vw",
+      minWidth: "40%",
+      maxWidth: "100%",
       borderRadius: "25px",
       border: "2px solid #96dcf8",
       background: "rgba(105, 147, 186, 0.3)",
     };
 
+    const myCaption3 = {
+      color: "white",
+      fontSize: "1.2vw",
+      padding: ".4vw",
+      paddingTop: ".8vw",
+      paddingBottom: ".8vw",
+      fontFamily: "Arial",
+      marginBottom: "1vw",
+      margin: "auto",
+      width: "580px",
+      minWidth: "40%",
+      maxWidth: "80%",
+      float: "left",
+      textAlign: "left",
+      borderRadius: "25px",
+      border: "2px solid #96dcf8",
+      background: "rgba(105, 147, 186, 0.3)",
+    };
+
+    const h1Size = {
+      fontSize: "2.4vw",
+      marginLeft: "1vw",
+    };
+
+    const pSize = {
+      fontSize: "1.2vw",
+      marginLeft: "1vw",
+    };
+
     const carouselButtons = {
-      width: "auto",
       fontSize: "1.4vw",
+      marginLeft: "1vw",
+      div: "clear",
     };
 
     const emoji = { fontSize: "1.4vw" };
     const carouselImg = { minHeight: "34vw" };
 
     return (
-      <Carousel>
+      <Carousel height="50vh">
         <Carousel.Item interval={5000}>
           <img
             style={carouselImg}
@@ -73,7 +94,7 @@ class IndexCarousel extends Component {
             <div style={myCaption1}>
               <h1 style={h1Size}>Welcome,</h1>
               <div>
-                <p>
+                <p style={pSize}>
                   I am a Senior Software Engineer interested in automation,
                   artificial intelligence, and maximizing user experiences. I
                   also love traveling <span style={emoji}>&#128747;</span>
@@ -98,7 +119,7 @@ class IndexCarousel extends Component {
           <Carousel.Caption>
             <div style={myCaption2}>
               <h1 style={h1Size}>Full Stack Developer</h1>
-              <p>
+              <p style={pSize}>
                 I have a masters in computer engineering as well as a diverse
                 technical background ranging from low level control systems
                 testing to full stack application development
@@ -122,7 +143,7 @@ class IndexCarousel extends Component {
           <Carousel.Caption>
             <div style={myCaption3}>
               <h1 style={h1Size}>Thanks for Visiting!</h1>
-              <p>
+              <p style={pSize}>
                 Please feel free to reach out on linkedIn or by clicking below.
                 I am always looking forward to new and challenging
                 opportunities.

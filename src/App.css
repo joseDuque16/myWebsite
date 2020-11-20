@@ -43,12 +43,15 @@
 
 .indexCardDiv {
   font-size: 1.2vw;
-  background-color: rgb(124, 183, 235);
+  background-color: rgb(255, 255, 255);
   justify-content: left;
 }
 
 .roundedDiv {
   border-radius: 25px;
   border-color: #96dcf8;
-  background: rgba(105, 147, 186, 0.3);
+}
+
+.testcolor {
+  background-color: #e6f6ff;
 }
