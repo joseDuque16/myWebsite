@@ -63,7 +63,7 @@ class IndexCarousel extends Component {
     };
 
     const h1Size = {
-      fontSize: "2.4vw",
+      fontSize: "2.0vw",
       marginLeft: "1vw",
     };
 
@@ -74,12 +74,18 @@ class IndexCarousel extends Component {
 
     const carouselButtons = {
       fontSize: "1.4vw",
+      insentTop: "0dp",
+      insentBottom: "0dp",
       marginLeft: "1vw",
+      paddingTop: "0px",
+      paddingBottom: "0px",
+      paddingLeft: "2px",
+      paddingRight: "2px",
       div: "clear",
     };
 
     const emoji = { fontSize: "1.4vw" };
-    const carouselImg = { minHeight: "34vw" };
+    const carouselImg = {};
 
     return (
       <Carousel height="50vh">
@@ -104,7 +110,7 @@ class IndexCarousel extends Component {
                 </Button>{" "}
                 <Button style={carouselButtons} variant="warning">
                   View Resume
-                </Button>{" "}
+                </Button>
               </div>
             </div>
           </Carousel.Caption>
