@@ -12,7 +12,7 @@ class IndexCarousel extends Component {
       fontSize: "1.4vw",
       padding: "1vw",
       fontFamily: "Arial",
-      marginBottom: "4vw",
+      marginBottom: "1vw",
       width: "40vw",
       float: "right",
       textAlign: "left",
