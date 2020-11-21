@@ -4,6 +4,7 @@ import mtFujiPic from "./mtfuji2.jpg";
 import barcelonaPic from "./barcelona2.jpg";
 import niagraPic from "./niagra2.jpg";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 class IndexCarousel extends Component {
   render() {
@@ -80,8 +81,8 @@ class IndexCarousel extends Component {
       marginLeft: "1vw",
       paddingTop: "0px",
       paddingBottom: "0px",
-      paddingLeft: "2px",
-      paddingRight: "2px",
+      paddingLeft: "5px",
+      paddingRight: "5px",
       div: "clear",
     };
 
@@ -89,83 +90,92 @@ class IndexCarousel extends Component {
     const carouselImg = { height: "34vw" };
 
     return (
-      <Carousel height="50vh">
-        <Carousel.Item interval={5000}>
-          <img
-            style={carouselImg}
-            className="d-block w-100"
-            src={niagraPic}
-            alt="Third slide"
-          />
-          <Carousel.Caption>
-            <div style={myCaption1}>
-              <h1 style={h1Size}>Welcome,</h1>
-              <div>
+      <div>
+        <Carousel height="50vh">
+          <Carousel.Item interval={5000}>
+            <img
+              style={carouselImg}
+              className="d-block w-100"
+              src={niagraPic}
+              alt="Third slide"
+            />
+            <Carousel.Caption>
+              <div style={myCaption1}>
+                <h1 style={h1Size}>Welcome,</h1>
+                <div>
+                  <p style={pSize}>
+                    {" "}
+                    <b>
+                      I am a Senior Software Engineer interested in automation,
+                      artificial intelligence, and maximizing user experiences.
+                      I also love traveling{" "}
+                    </b>
+                    <span style={emoji}>&#128747;</span>
+                  </p>
+                  <Button style={carouselButtons} variant="primary">
+                    <a href="#bottom" style={{ color: "white" }}>
+                      {" "}
+                      Learn More{" "}
+                    </a>
+                  </Button>{" "}
+                  <Button style={carouselButtons} variant="warning">
+                    <a href="/Resume" style={{ color: "black" }}>
+                      {" "}
+                      View Resume{" "}
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item interval={5000}>
+            <img
+              style={carouselImg}
+              className="d-block w-100"
+              src={barcelonaPic}
+              alt="Third slide"
+            />
+            <Carousel.Caption>
+              <div style={myCaption2}>
+                <h1 style={h1Size}>Full Stack Developer</h1>
                 <p style={pSize}>
-                  {" "}
-                  <b>
-                    I am a Senior Software Engineer interested in automation,
-                    artificial intelligence, and maximizing user experiences. I
-                    also love traveling{" "}
-                  </b>
-                  <span style={emoji}>&#128747;</span>
+                  I have a masters in computer engineering as well as a diverse
+                  technical background ranging from low level control systems
+                  testing to full stack application development
                 </p>
                 <Button style={carouselButtons} variant="primary">
-                  Learn More
+                  Interactive Portfolio
                 </Button>{" "}
                 <Button style={carouselButtons} variant="warning">
-                  View Resume
-                </Button>
+                  Other Projects
+                </Button>{" "}
               </div>
-            </div>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item interval={5000}>
-          <img
-            style={carouselImg}
-            className="d-block w-100"
-            src={barcelonaPic}
-            alt="Third slide"
-          />
-          <Carousel.Caption>
-            <div style={myCaption2}>
-              <h1 style={h1Size}>Full Stack Developer</h1>
-              <p style={pSize}>
-                I have a masters in computer engineering as well as a diverse
-                technical background ranging from low level control systems
-                testing to full stack application development
-              </p>
-              <Button style={carouselButtons} variant="primary">
-                Interactive Portfolio
-              </Button>{" "}
-              <Button style={carouselButtons} variant="warning">
-                Other Projects
-              </Button>{" "}
-            </div>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item interval={5000}>
-          <img
-            style={carouselImg}
-            className="d-block w-100"
-            src={mtFujiPic}
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            <div style={myCaption3}>
-              <h1 style={h1Size}>Thanks for Visiting!</h1>
-              <p style={pSize}>
-                Please feel free to reach out on linkedIn or by clicking below.
-                I am always looking forward to new and challenging
-                opportunities.
-              </p>
-              <Button style={carouselButtons} variant="warning">
-                Contact Me
-              </Button>{" "}
-            </div>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item interval={5000}>
+            <img
+              style={carouselImg}
+              className="d-block w-100"
+              src={mtFujiPic}
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <div style={myCaption3}>
+                <h1 style={h1Size}>Thanks for Visiting!</h1>
+                <p style={pSize}>
+                  Please feel free to reach out on linkedIn or by clicking
+                  below. I am always looking forward to new and challenging
+                  opportunities.
+                </p>
+                <Button style={carouselButtons} variant="warning">
+                  Contact Me
+                </Button>{" "}
+              </div>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+        <div id="bottom"></div>
+      </div>
     );
   }
 }

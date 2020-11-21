@@ -10,6 +10,8 @@ import HeadNavBar from "./NavBar";
 import IndexCarousel from "./HomeCarousel";
 import IndexCards from "./IndexCards";
 import Footer from "./Footer";
+import Resume from "./Resume";
+import { useLocation } from "react-router";
 
 class App extends Component {
   constructor(props) {
@@ -29,10 +31,17 @@ class App extends Component {
   }
 
   render() {
+    const appContainer = {
+      backgroundColor: "#343a40",
+    };
+
     return (
-      <div className="App">
+      <div className="App" style={appContainer}>
         <HeadNavBar />
         <Router>
+          <Route path="/Resume">
+            <Resume bgcolor="#f7e9c5"></Resume>
+          </Route>
           <Route path="/" exact>
             <IndexCarousel />
             <IndexCards />
