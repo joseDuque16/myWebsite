@@ -8,8 +8,9 @@ class IndexCardLink extends Component {
       eventKey: this.props.eventKey,
       value: this.props.p,
       select: this.props.select,
-      textColorDefault: "white",
+      textColorDefault: "black",
       selectTextColor: "black",
+      selectTabColor: props.color,
     };
   }
 
@@ -19,9 +20,9 @@ class IndexCardLink extends Component {
 
   render = () => {
     const myStyle = {
-      color: this.state.select
-        ? this.state.selectTextColor
-        : this.state.textColorDefault,
+      fontWeight: this.state.select ? "bold" : "normal",
+      backgroundColor: this.state.selectTabColor,
+      color: this.state.textColorDefault,
     };
     return (
       <Nav.Link eventKey={this.state.eventKey} style={myStyle}>

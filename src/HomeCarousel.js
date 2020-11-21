@@ -9,21 +9,22 @@ class IndexCarousel extends Component {
   render() {
     const myCaption1 = {
       color: "white",
+      minHeight: "2px",
       fontSize: "1.2vw",
       padding: ".4vw",
       paddingTop: ".8vw",
       paddingBottom: ".8vw",
       margin: "auto",
       fontFamily: "Arial",
-      marginBottom: "1vw",
+      marginBottom: "4vw",
       width: "600px",
       minWidth: "50%",
       maxWidth: "80%",
       float: "right",
       textAlign: "left",
-      borderRadius: "25px",
-      border: "2px solid #96dcf8",
-      background: "rgba(105, 147, 186, 0.3)",
+      //borderRadius: "25px",
+      //border: "2px solid #96dcf8",
+      //background: "rgba(105, 147, 186, 0.3)",
     };
 
     const myCaption2 = {
@@ -38,9 +39,9 @@ class IndexCarousel extends Component {
       margin: "auto",
       minWidth: "40%",
       maxWidth: "100%",
-      borderRadius: "25px",
-      border: "2px solid #96dcf8",
-      background: "rgba(105, 147, 186, 0.3)",
+      //borderRadius: "25px",
+      //border: "2px solid #96dcf8",
+      //background: "rgba(105, 147, 186, 0.3)",
     };
 
     const myCaption3 = {
@@ -57,9 +58,9 @@ class IndexCarousel extends Component {
       maxWidth: "80%",
       float: "left",
       textAlign: "left",
-      borderRadius: "25px",
-      border: "2px solid #96dcf8",
-      background: "rgba(105, 147, 186, 0.3)",
+      //borderRadius: "25px",
+      //border: "2px solid #96dcf8",
+      //background: "rgba(105, 147, 186, 0.3)",
     };
 
     const h1Size = {
@@ -85,7 +86,7 @@ class IndexCarousel extends Component {
     };
 
     const emoji = { fontSize: "1.4vw" };
-    const carouselImg = {};
+    const carouselImg = { height: "34vw" };
 
     return (
       <Carousel height="50vh">
@@ -101,9 +102,13 @@ class IndexCarousel extends Component {
               <h1 style={h1Size}>Welcome,</h1>
               <div>
                 <p style={pSize}>
-                  I am a Senior Software Engineer interested in automation,
-                  artificial intelligence, and maximizing user experiences. I
-                  also love traveling <span style={emoji}>&#128747;</span>
+                  {" "}
+                  <b>
+                    I am a Senior Software Engineer interested in automation,
+                    artificial intelligence, and maximizing user experiences. I
+                    also love traveling{" "}
+                  </b>
+                  <span style={emoji}>&#128747;</span>
                 </p>
                 <Button style={carouselButtons} variant="primary">
                   Learn More

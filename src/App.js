@@ -32,11 +32,13 @@ class App extends Component {
     return (
       <div className="App">
         <HeadNavBar />
-        <IndexCarousel />
-        <br></br>
-        <IndexCards></IndexCards>
-        <br></br>
-        <Footer></Footer>
+        <Router>
+          <Route path="/" exact>
+            <IndexCarousel />
+            <IndexCards />
+          </Route>
+        </Router>
+        <Footer />
       </div>
     );
   }

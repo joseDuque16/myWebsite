@@ -9,6 +9,11 @@ import Container from "react-bootstrap/Container";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import IndexCardLink from "./IndexCardLink";
+import languagesPic from "./languages.PNG";
+import frontendPic from "./frontend.PNG";
+import backendPic from "./backend.PNG";
+import baelogoPic from "./baelogo.png";
+import intellogoPic from "./intellogo.png";
 
 class MyCard extends Component {
   constructor(props) {
@@ -16,6 +21,7 @@ class MyCard extends Component {
     this.state = {
       header: props.header ? props.header : "default",
       text: props.text ? props.text : "default text",
+      img: props.img,
     };
   }
 
@@ -26,27 +32,21 @@ class MyCard extends Component {
     const pStyle = {
       fontSize: "1.6vw",
     };
+    const cardStyle = {
+      margin: "4px",
+    };
+
+    const cardImg = {
+      Width: "100px",
+      height: "100px",
+      borderRadius: "50%",
+    };
 
     return (
       <Col sm>
-        <div className="indexCardDiv roundedDiv">
+        <div style={cardStyle} className="indexCardDiv roundedDiv">
           <br></br>
-          <svg
-            class="bd-placeholder-img rounded-circle"
-            width="140"
-            height="140"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-            role="img"
-            aria-label="Placeholder: 140x140"
-          >
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" />
-            <text x="50%" y="50%" fill="#777" dy=".3em">
-              140x140
-            </text>
-          </svg>
+          <img src={this.state.img} style={cardImg} alt="languages.PNG"></img>
           <h4 style={h4Style}> {this.state.header} </h4>
           <hr></hr>
           <p style={pStyle}> {this.state.text} </p>
@@ -99,18 +99,34 @@ class IndexCard extends Component {
   };
 
   render() {
+    const tabColors = ["#D0e5fa", "#f7e9c5", "#a5cbaf"];
+    const curColor = this.state.selectedLink1
+      ? tabColors[0]
+      : this.state.selectedLink2
+      ? tabColors[1]
+      : tabColors[2];
+
     const navContainer = {
       margin: "auto",
       marginBottom: "2vw",
-      backgroundColor: "#484f57",
+      backgroundColor: "white",
     };
     const tabContainer = {
       margin: "auto",
+      width: "100%",
+      backgroundColor: curColor,
     };
+
     const container = {
       borderRadius: "25px",
-      width: "95%",
+      width: "100%",
       margin: "auto",
+      backgroundColor: curColor,
+    };
+
+    const rowStyle = {
+      marginLeft: "3vw",
+      marginRight: "3vw",
     };
 
     return (
@@ -121,12 +137,14 @@ class IndexCard extends Component {
             className="justify-content-center"
             variant="tabs"
             onSelect={this.tabSelected}
+            fill
           >
             <Nav.Item>
               <IndexCardLink
                 eventKey="first"
                 p="Tech skillz"
                 select={this.state.selectedLink1}
+                color={tabColors[0]}
               ></IndexCardLink>
             </Nav.Item>
             <Nav.Item>
@@ -134,6 +152,7 @@ class IndexCard extends Component {
                 eventKey="second"
                 p="Experience"
                 select={this.state.selectedLink2}
+                color={tabColors[1]}
               ></IndexCardLink>
             </Nav.Item>
             <Nav.Item>
@@ -141,36 +160,62 @@ class IndexCard extends Component {
                 eventKey="third"
                 p="Soft skillz"
                 select={this.state.selectedLink3}
+                color={tabColors[2]}
               ></IndexCardLink>
             </Nav.Item>
           </Nav>
           <Tab.Content style={tabContainer}>
             <Tab.Pane eventKey="first">
-              <Row>
-                <MyCard header="Languages"></MyCard>
-                <MyCard header="Frontend" text="pietext"></MyCard>
-                <MyCard header="Backend" text="pietext"></MyCard>
+              <Row style={rowStyle}>
+                <MyCard
+                  header="Languages"
+                  img={languagesPic}
+                  text="pietext"
+                ></MyCard>
+                <MyCard
+                  header="Frontend"
+                  img={frontendPic}
+                  text="pietext"
+                ></MyCard>
+                <MyCard
+                  header="Backend"
+                  img={backendPic}
+                  text="pietext"
+                ></MyCard>
               </Row>
             </Tab.Pane>
           </Tab.Content>
           <Tab.Content style={tabContainer}>
             <Tab.Pane eventKey="second">
-              <Row>
-                <MyCard header="BAE Systems"></MyCard>
-                <MyCard header="BAE Systems" text="pietext"></MyCard>
-                <MyCard header="Intel" text="pietext"></MyCard>
+              <Row style={rowStyle}>
+                <MyCard
+                  header="BAE - Proposal Lead"
+                  text="pietext"
+                  img={baelogoPic}
+                ></MyCard>
+                <MyCard
+                  header="BAE - Software Engineer 2"
+                  text="pietext"
+                  img={baelogoPic}
+                ></MyCard>
+                <MyCard
+                  header="Intel - Linux Kernel Developer"
+                  img={intellogoPic}
+                  text="pietext"
+                ></MyCard>
               </Row>
             </Tab.Pane>
           </Tab.Content>
           <Tab.Content style={tabContainer}>
             <Tab.Pane eventKey="third">
-              <Row>
+              <Row style={rowStyle}>
                 <MyCard header="Leadership"></MyCard>
                 <MyCard header="Service" text="pietext"></MyCard>
                 <MyCard header="Other" text="pietext"></MyCard>
               </Row>
             </Tab.Pane>
           </Tab.Content>
+          <br></br>
         </Tab.Container>
       </div>
     );
