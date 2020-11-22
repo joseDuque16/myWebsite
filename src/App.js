@@ -11,6 +11,7 @@ import IndexCarousel from "./HomeCarousel";
 import IndexCards from "./IndexCards";
 import Footer from "./Footer";
 import Resume from "./Resume";
+import Form from "./Form";
 import { useLocation } from "react-router";
 
 class App extends Component {
@@ -39,12 +40,15 @@ class App extends Component {
       <div className="App" style={appContainer}>
         <HeadNavBar />
         <Router>
-          <Route path="/Resume">
-            <Resume bgcolor="#f7e9c5"></Resume>
-          </Route>
           <Route path="/" exact>
             <IndexCarousel />
             <IndexCards />
+          </Route>
+          <Route path="/Resume">
+            <Resume bgcolor="#f7e9c5" />
+          </Route>
+          <Route path="/Contact" exact>
+            <Form />
           </Route>
         </Router>
         <Footer />

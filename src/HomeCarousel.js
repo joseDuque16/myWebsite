@@ -14,7 +14,7 @@ class IndexCarousel extends Component {
       fontSize: "1.2vw",
       padding: ".4vw",
       paddingTop: ".8vw",
-      paddingBottom: ".8vw",
+      paddingBottom: "4vw",
       margin: "auto",
       fontFamily: "Arial",
       marginBottom: "4vw",
@@ -79,10 +79,11 @@ class IndexCarousel extends Component {
       insentTop: "0dp",
       insentBottom: "0dp",
       marginLeft: "1vw",
-      paddingTop: "0px",
-      paddingBottom: "0px",
-      paddingLeft: "5px",
-      paddingRight: "5px",
+      paddingTop: "2px",
+      paddingBottom: "2px",
+      paddingLeft: "10px",
+      paddingRight: "10px",
+      borderColor: "lightblue",
       div: "clear",
     };
 
@@ -105,12 +106,9 @@ class IndexCarousel extends Component {
                 <div>
                   <p style={pSize}>
                     {" "}
-                    <b>
-                      I am a Senior Software Engineer interested in automation,
-                      artificial intelligence, and maximizing user experiences.
-                      I also love traveling{" "}
-                    </b>
-                    <span style={emoji}>&#128747;</span>
+                    I am a Senior Software Engineer interested in automation,
+                    artificial intelligence, and maximizing user experiences. I
+                    also love traveling <span style={emoji}>&#128747;</span>
                   </p>
                   <Button style={carouselButtons} variant="primary">
                     <a href="#bottom" style={{ color: "white" }}>
@@ -168,7 +166,10 @@ class IndexCarousel extends Component {
                   opportunities.
                 </p>
                 <Button style={carouselButtons} variant="warning">
-                  Contact Me
+                  <a href="/Contact" style={{ color: "black" }}>
+                    {" "}
+                    Contact Me{" "}
+                  </a>
                 </Button>{" "}
               </div>
             </Carousel.Caption>
