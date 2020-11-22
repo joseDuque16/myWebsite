@@ -9,9 +9,9 @@ import Container from "react-bootstrap/Container";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import IndexCardLink from "./IndexCardLink";
-import languagesPic from "./languages.PNG";
-import frontendPic from "./frontend.PNG";
-import backendPic from "./backend.PNG";
+import languagesPic from "./languages.png";
+import frontendPic from "./frontend.png";
+import backendPic from "./backend.png";
 import baelogoPic from "./baelogo.png";
 import intellogoPic from "./intellogo.png";
 
@@ -46,7 +46,7 @@ class MyCard extends Component {
       <Col sm>
         <div style={cardStyle} className="indexCardDiv roundedDiv">
           <br></br>
-          <img src={this.state.img} style={cardImg} alt="languages.PNG"></img>
+          <img src={this.state.img} style={cardImg} alt="languages.png"></img>
           <h4 style={h4Style}> {this.state.header} </h4>
           <hr></hr>
           <p style={pStyle}> {this.state.text} </p>
