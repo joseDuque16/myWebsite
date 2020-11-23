@@ -12,7 +12,6 @@ import IndexCards from "./IndexCards";
 import Footer from "./Footer";
 import Resume from "./Resume";
 import Form from "./Form";
-import { useLocation } from "react-router";
 
 class App extends Component {
   constructor(props) {
@@ -28,7 +27,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.callAPI();
+    //this.callAPI();
   }
 
   render() {
@@ -47,8 +46,8 @@ class App extends Component {
           <Route path="/Resume">
             <Resume bgcolor="#f7e9c5" />
           </Route>
-          <Route path="/Contact" exact>
-            <Form />
+          <Route path="/Contact">
+            <Form showForm="true" />
           </Route>
         </Router>
         <Footer />
