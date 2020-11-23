@@ -53,7 +53,7 @@ class MyCard extends Component {
           ></img>
           <h4 style={h4Style}> {this.state.header} </h4>
           <hr></hr>
-          <p style={pStyle}> {this.state.text} </p>
+          <div>{this.props.children}</div>
         </div>
       </Col>
     );
@@ -146,7 +146,7 @@ class IndexCard extends Component {
             <Nav.Item>
               <IndexCardLink
                 eventKey="first"
-                p="Tech skillz"
+                p="Tech skills"
                 select={this.state.selectedLink1}
                 color={tabColors[0]}
               ></IndexCardLink>
@@ -162,7 +162,7 @@ class IndexCard extends Component {
             <Nav.Item>
               <IndexCardLink
                 eventKey="third"
-                p="Soft skillz"
+                p="Soft skills"
                 select={this.state.selectedLink3}
                 color={tabColors[2]}
               ></IndexCardLink>
@@ -171,21 +171,58 @@ class IndexCard extends Component {
           <Tab.Content style={tabContainer}>
             <Tab.Pane eventKey="first">
               <Row style={rowStyle}>
-                <MyCard
-                  header="Languages"
-                  img={languagesPic}
-                  text="pietext"
-                ></MyCard>
-                <MyCard
-                  header="Frontend"
-                  img={frontendPic}
-                  text="pietext"
-                ></MyCard>
-                <MyCard
-                  header="Backend"
-                  img={backendPic}
-                  text="pietext"
-                ></MyCard>
+                <MyCard header="Languages / Other" img={languagesPic} text="">
+                  <h5 style={{ display: "inline" }}>Javascript - </h5>
+                  <p style={{ display: "inline" }}>5 years of experience</p>
+                  <br></br>
+                  <br></br>
+                  <h5 style={{ display: "inline" }}>Java - </h5>
+                  <p style={{ display: "inline" }}>4 years of experience</p>
+                  <br></br>
+                  <br></br>
+                  <h5 style={{ display: "inline" }}>Python - </h5>
+                  <p style={{ display: "inline" }}>6 years of experience</p>
+                  <br></br>
+                  <br></br>
+                  <h5 style={{ display: "inline" }}>Android Development - </h5>
+                  <p style={{ display: "inline" }}>1 year of experience</p>
+                  <br></br>
+                  <br></br>
+                  <h5 style={{ display: "inline" }}>
+                    Node Package Manager (NPM)
+                  </h5>
+                  <br></br>
+                  <br></br>
+                  <h5 style={{ display: "inline" }}>Github</h5>
+                  <br></br>
+                  <br></br>
+                </MyCard>
+                <MyCard header="Frontend" img={frontendPic} text="pietext">
+                  <h5>React {"&"} React-Native</h5>
+                  <br></br>
+                  <h5>HTML {"&"} CSS </h5>
+                  <br></br>
+                  <h5>Responsive Web Design</h5>
+                  <br></br>
+                  <h5>HTML DOM {"&"} BOM</h5>
+                  <br></br>
+                  <h5>Bootstrap {"&"} React-Bootstrap</h5>
+                  <br></br>
+                  <h5>AJAX </h5>
+                  <br></br>
+                </MyCard>
+                <MyCard header="Backend" img={backendPic} text="pietext">
+                  <h5>MongoDB {" & "} SQL Server</h5>
+                  <br></br>
+                  <h5>Node {"&"} Express </h5>
+                  <br></br>
+                  <h5>AWS (Elastic BeanStalk)</h5>
+                  <br></br>
+                  <h5>AWS (Amplify {" & "} S3)</h5>
+                  <br></br>
+                  <h5>REST API Development</h5>
+                  <br></br>
+                </MyCard>
               </Row>
             </Tab.Pane>
           </Tab.Content>
@@ -196,17 +233,109 @@ class IndexCard extends Component {
                   header="BAE - Proposal Lead"
                   text="pietext"
                   img={baelogoPic}
-                ></MyCard>
+                >
+                  <h3>Sept 2019- Sept 2020</h3>
+                  <hr></hr>
+                  <div style={{ textAlign: "left", marginRight: "1vw" }}>
+                    <ul>
+                      <li>
+                        <p>
+                          Lead multi-functional commercial and
+                          government/military proposals consisting of engineers,
+                          managers, cost estimators, contracts, and operations
+                          personnel as part of the Engineering New Business
+                          team.{" "}
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          {" "}
+                          Responsible for proposal schedule generation and
+                          management, management of proposal technical and
+                          management volumes, finding resource staffing with
+                          management and providing leadership to the bid team,
+                          closing knowledge gaps, managing and generating cost
+                          roll-ups for formal ROM submittals and FFP submittals,
+                          and making technical presentations to managers and
+                          directors.{" "}
+                        </p>
+                      </li>
+                    </ul>
+                    <br></br>
+                  </div>
+                </MyCard>
                 <MyCard
                   header="BAE - Software Engineer 2"
                   text="pietext"
                   img={baelogoPic}
-                ></MyCard>
+                >
+                  <h3>Oct 2016- Aug 2019</h3>
+                  <hr></hr>
+                  <div style={{ textAlign: "left", marginRight: "1vw" }}>
+                    <ul>
+                      <li>
+                        <p>
+                          Developed frontend/backend APIs for the BAE Systems
+                          proprietary Interface Control Document (ICD) tools for
+                          automated code generation and test verification using
+                          Javascript/ SQL Server / NodeJs/ HTML and CSS
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Developer of the Interface Control Document (ICD)
+                          automation tool for the Common Data Network on the
+                          Boeing 777x. Individually developed tool chain and
+                          database for storing and processing XML based
+                          interface documents using Python, SQL, and XSLT.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Integration/Verification lead for the Circuit Breaker
+                          Interface Control (CBIC) application for the Boeing
+                          777x Flight Control Module. Job included developing
+                          python tests to verify requirement coverage, and
+                          hardware debugging with logic analyzers and probes.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Test developer/test verification engineer for the GE9X
+                          engine control system and the On-Board Inert Gas
+                          Generation System for the KC-390 jet. Tests were
+                          developed in GTI, a BAE Systems proprietary language
+                          and run to verify full compliance to the software
+                          requirements.
+                        </p>
+                      </li>
+                    </ul>
+                    <br></br>
+                  </div>
+                </MyCard>
                 <MyCard
                   header="Intel - Linux Kernel Developer"
                   img={intellogoPic}
                   text="pietext"
-                ></MyCard>
+                >
+                  <h3>Feb 2018- August 2019</h3>
+                  <hr></hr>
+                  <div style={{ textAlign: "left", marginRight: "1vw" }}>
+                    <ul>
+                      <li>
+                        <p>
+                          Wrote and submitted patches for the Linux kernel and
+                          Linux UEFI Validation Project (LUV). Patches focused
+                          on reducing the size of the kernel proper by reducing
+                          the amount of zero padding through the implementation
+                          of a smaller page alignment. Achieved a kernel proper
+                          size reduction of 23% using varying approaches
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                  <br></br>
+                </MyCard>
               </Row>
             </Tab.Pane>
           </Tab.Content>

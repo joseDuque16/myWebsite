@@ -162,6 +162,7 @@ class Form extends Component {
             <input
               type="text"
               size="40"
+              style={{ width: "100%" }}
               style={{ float: "left", marginLeft: "10px" }}
               onChange={this.myNameChangeHandler}
               name="name"
@@ -175,6 +176,7 @@ class Form extends Component {
             </label>{" "}
             <input
               type="email"
+              style={{ width: "100%" }}
               size="100"
               onChange={this.myEmailChangeHandler}
               name="email"
@@ -188,6 +190,7 @@ class Form extends Component {
             </label>{" "}
             <input
               type="text"
+              style={{ width: "100%" }}
               size="100"
               onChange={this.mySubjectChangeHandler}
               name="subject"
@@ -201,6 +204,7 @@ class Form extends Component {
             <br></br>
             <textarea
               name="message"
+              style={{ width: "100%" }}
               rows="10"
               onChange={this.myMessageChangeHandler}
               cols="103"
