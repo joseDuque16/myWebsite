@@ -12,6 +12,7 @@ import IndexCards from "./IndexCards";
 import Footer from "./Footer";
 import Resume from "./Resume";
 import Form from "./Form";
+import Games from "./Games";
 
 class App extends Component {
   constructor(props) {
@@ -48,6 +49,9 @@ class App extends Component {
           </Route>
           <Route path="/Contact">
             <Form showForm="true" />
+          </Route>
+          <Route path="/Portfolio">
+            <Games bgcolor="#f7e9c5"></Games>
           </Route>
         </Router>
         <Footer />
