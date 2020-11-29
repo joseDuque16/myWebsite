@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Alert from "react-bootstrap/esm/Alert";
 import GamesSnake from "./Games_Snake";
+import TicTacToe from "./TicTacToe";
 
 class GamesSelect extends Component {
   constructor(props) {
@@ -35,16 +36,20 @@ class GamesSelect extends Component {
       display: this.state.page === "Snake" ? "block" : "none",
     };
 
-    const createGamesRow = (input) => {
+    const TicTacToe_Style = {
+      display: this.state.page === "TicTacToe" ? "block" : "none",
+    };
+
+    const createGamesRow = (input, idxInput) => {
       const output = input.map((value, idx) => {
         return (
-          <Col>
+          <Col key={value + idxInput + "Col"}>
             <Button
               style={myGameButtons}
               onClick={() => {
                 this.changeState(value);
               }}
-              key={idx}
+              key={value + idxInput + "Button"}
             >
               {" "}
               {value}
@@ -54,7 +59,6 @@ class GamesSelect extends Component {
       });
       return output;
     };
-    console.log(this.state.page);
     return (
       <div>
         <div
@@ -84,12 +88,15 @@ class GamesSelect extends Component {
               </p>
             </Alert>
           </div>
-          <Row>{createGamesRow(myGamesRow1)}</Row>
-          <Row>{createGamesRow(myGamesRow2)}</Row>
-          <Row>{createGamesRow(myGamesRow3)}</Row>
+          <Row>{createGamesRow(myGamesRow1, 1)}</Row>
+          <Row>{createGamesRow(myGamesRow2, 2)}</Row>
+          <Row>{createGamesRow(myGamesRow3, 3)}</Row>
         </div>
         <div style={Game_Snake}>
           <GamesSnake></GamesSnake>
+        </div>
+        <div style={TicTacToe_Style}>
+          <TicTacToe></TicTacToe>
         </div>
       </div>
     );

@@ -127,8 +127,8 @@ class GamesSnake extends Component {
       return;
     } else {
       if (
-        curPos[0] == this.state.applePos[0] &&
-        curPos[1] == this.state.applePos[1]
+        curPos[0] === this.state.applePos[0] &&
+        curPos[1] === this.state.applePos[1]
       ) {
         // Check if we just ate an apple
         this.setSnake(curPos);
@@ -149,13 +149,16 @@ class GamesSnake extends Component {
   *********************************************/
   keyPress = (evt) => {
     // Dont let the user move the opposite of current direction
-    if (this.state.lockInPos == "ArrowLeft" && evt.key == "ArrowRight") {
+    if (this.state.lockInPos === "ArrowLeft" && evt.key === "ArrowRight") {
       return;
-    } else if (this.state.lockInPos == "ArrowRight" && evt.key == "ArrowLeft") {
+    } else if (
+      this.state.lockInPos === "ArrowRight" &&
+      evt.key === "ArrowLeft"
+    ) {
       return;
-    } else if (this.state.lockInPos == "ArrowUp" && evt.key == "ArrowDown") {
+    } else if (this.state.lockInPos === "ArrowUp" && evt.key === "ArrowDown") {
       return;
-    } else if (this.state.lockInPos == "ArrowDown" && evt.key == "ArrowUp") {
+    } else if (this.state.lockInPos === "ArrowDown" && evt.key === "ArrowUp") {
       return;
     }
 
@@ -224,8 +227,8 @@ class GamesSnake extends Component {
     var randX;
     var randY;
     do {
-      var randX = Math.floor(Math.random() * 17);
-      var randY = Math.floor(Math.random() * 17);
+      randX = Math.floor(Math.random() * 17);
+      randY = Math.floor(Math.random() * 17);
       possibleNewPost = randX + "," + randY;
     } while (snakeLookup[possibleNewPost]); // Repeat finding apple pos if it overlaps with snake
 
@@ -264,6 +267,7 @@ class GamesSnake extends Component {
       return (
         <Col
           md="auto"
+          key={this.state.map[row][index].id + "col"}
           style={{
             margin: "0px",
             padding: "0px",
@@ -272,6 +276,7 @@ class GamesSnake extends Component {
           }}
         >
           <img
+            key={this.state.map[row][index].id + "img"}
             style={{
               margin: "0px",
               padding: "0px",
@@ -306,7 +311,7 @@ class GamesSnake extends Component {
     }
     var rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
     var output = rows.map((val, idx) => {
-      return <Row>{this.renderRow(val)}</Row>;
+      return <Row key={val}>{this.renderRow(val)}</Row>;
     });
     return output;
   };

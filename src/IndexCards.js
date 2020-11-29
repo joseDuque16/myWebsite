@@ -234,7 +234,7 @@ class IndexCard extends Component {
                   text="pietext"
                   img={baelogoPic}
                 >
-                  <h3>Sept 2019- Sept 2020</h3>
+                  <h4>Sept 2019- Sept 2020</h4>
                   <hr></hr>
                   <div style={{ textAlign: "left", marginRight: "1vw" }}>
                     <ul>
@@ -269,7 +269,7 @@ class IndexCard extends Component {
                   text="pietext"
                   img={baelogoPic}
                 >
-                  <h3>Oct 2016- Aug 2019</h3>
+                  <h4>Oct 2016- Aug 2019</h4>
                   <hr></hr>
                   <div style={{ textAlign: "left", marginRight: "1vw" }}>
                     <ul>
@@ -318,7 +318,7 @@ class IndexCard extends Component {
                   img={intellogoPic}
                   text="pietext"
                 >
-                  <h3>Feb 2018- August 2019</h3>
+                  <h4>Feb 2018- August 2019</h4>
                   <hr></hr>
                   <div style={{ textAlign: "left", marginRight: "1vw" }}>
                     <ul>
