@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import white from "./white.jpg";
 import oImage from "./oImage.jpg";
 import xImage from "./xImage.jpg";
+import miniMax from "./TicTacToeAI";
 
 class TicTacToe extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class TicTacToe extends Component {
       computerMove: false,
       gameStarted: false,
       playerWin: null, // true is player won, false is player lost, null is a draw
+      mediumDifficultySmartMoves: 0,
     };
   }
 
@@ -31,60 +33,28 @@ class TicTacToe extends Component {
     }
 
     //Number of winning moves = 2+3+3
-    if (
-      board[0] === playerPiece &&
-      board[1] === playerPiece &&
-      board[2] === playerPiece
-    ) {
+    if (board[0] === playerPiece && board[1] === playerPiece && board[2] === playerPiece) {
       // first horizontal line
       gameWin = true;
-    } else if (
-      board[3] === playerPiece &&
-      board[4] === playerPiece &&
-      board[5] === playerPiece
-    ) {
+    } else if (board[3] === playerPiece && board[4] === playerPiece && board[5] === playerPiece) {
       // second horizontal line
       gameWin = true;
-    } else if (
-      board[6] === playerPiece &&
-      board[7] === playerPiece &&
-      board[8] === playerPiece
-    ) {
+    } else if (board[6] === playerPiece && board[7] === playerPiece && board[8] === playerPiece) {
       // third horizontal line
       gameWin = true;
-    } else if (
-      board[0] === playerPiece &&
-      board[3] === playerPiece &&
-      board[6] === playerPiece
-    ) {
+    } else if (board[0] === playerPiece && board[3] === playerPiece && board[6] === playerPiece) {
       //first vertical
       gameWin = true;
-    } else if (
-      board[1] === playerPiece &&
-      board[4] === playerPiece &&
-      board[7] === playerPiece
-    ) {
+    } else if (board[1] === playerPiece && board[4] === playerPiece && board[7] === playerPiece) {
       //second vertical
       gameWin = true;
-    } else if (
-      board[2] === playerPiece &&
-      board[5] === playerPiece &&
-      board[8] === playerPiece
-    ) {
+    } else if (board[2] === playerPiece && board[5] === playerPiece && board[8] === playerPiece) {
       //third vertical
       gameWin = true;
-    } else if (
-      board[0] === playerPiece &&
-      board[4] === playerPiece &&
-      board[8] === playerPiece
-    ) {
+    } else if (board[0] === playerPiece && board[4] === playerPiece && board[8] === playerPiece) {
       // \ diagonal
       gameWin = true;
-    } else if (
-      board[2] === playerPiece &&
-      board[4] === playerPiece &&
-      board[6] === playerPiece
-    ) {
+    } else if (board[2] === playerPiece && board[4] === playerPiece && board[6] === playerPiece) {
       // / diagonal
       gameWin = true;
     } else {
@@ -109,40 +79,61 @@ class TicTacToe extends Component {
     return false;
   };
 
+  smartMove = (board) => {
+    var output = miniMax(board, !this.state.playerPiece);
+    console.log("Impossible AI picked: " + output);
+
+    board[output] = !this.state.playerPiece;
+    return board;
+  };
+
+  dumbMove = (board) => {
+    var unpicked = [];
+    for (var i = 0; i < 9; i++) {
+      if (board[i] == null) {
+        unpicked.push(i);
+      }
+    }
+    var randNum = unpicked[Math.round(Math.random() * (unpicked.length - 1))];
+    console.log("Easy AI picked: " + randNum);
+
+    board[randNum] = !this.state.playerPiece;
+    return board;
+  };
+
   computerMove = () => {
+    var smartMoves = this.state.mediumDifficultySmartMoves;
+
+    // dont make a move if the game is over
     if (this.state.gameOver === true) return;
     var board = this.state.boardStatus;
-    if (this.state.gameDifficulty === "easy") {
-      // easy AI
-      var unpicked = [];
-      for (var i = 0; i < 9; i++) {
-        if (board[i] == null) {
-          unpicked.push(i);
-        }
-      }
-      console.log(unpicked);
-      var randNum = unpicked[Math.round(Math.random() * (unpicked.length - 1))];
-      console.log("picked: " + randNum);
 
-      board[randNum] = !this.state.playerPiece;
+    // determine the move to be made based on the difficulty chosen
+    if (this.state.gameDifficulty === "easy") {
+      // easy AI - random Pick
+      board = this.dumbMove(board);
     } else if (this.state.gameDifficulty === "medium") {
-      //Medium AI
+      //Medium AI - alternates between minimax and easy ai (2 hard moves per one dumb move)
+      if (smartMoves < 3) {
+        board = this.smartMove(board);
+        smartMoves++;
+      } else {
+        board = this.dumbMove(board);
+        smartMoves = 0;
+      }
     } else {
       // impossible AI
+      board = this.smartMove(board);
     }
 
     this.checkWin(false, board);
-    this.setState({ boardStatus: board, computerMove: false });
+    this.setState({ boardStatus: board, computerMove: false, mediumDifficultySmartMoves: smartMoves });
 
     return;
   };
 
   playerMoved = (idx) => {
-    if (
-      this.state.computerMove ||
-      this.state.gameStarted === false ||
-      this.state.boardStatus[idx] !== null
-    ) {
+    if (this.state.computerMove || this.state.gameStarted === false || this.state.boardStatus[idx] !== null) {
       return;
     }
     var board = this.state.boardStatus;
@@ -186,11 +177,7 @@ class TicTacToe extends Component {
     var arr = [1 + val, 2 + val, 3 + val];
     var output = arr.map((val, idx) => {
       return (
-        <Col
-          key={val + "Col"}
-          width="33%"
-          style={{ border: "solid", borderWidth: "10px" }}
-        >
+        <Col key={val + "Col"} width="33%" style={{ border: "solid", borderWidth: "10px" }}>
           <img
             type="image"
             src={
@@ -220,10 +207,7 @@ class TicTacToe extends Component {
   render() {
     return (
       <div>
-        <Alert
-          variant="success"
-          style={{ display: this.state.gameOver ? "block" : "none" }}
-        >
+        <Alert variant="success" style={{ display: this.state.gameOver ? "block" : "none" }}>
           <Button href="./Portfolio" style={{ float: "right" }}>
             Go Back
           </Button>
@@ -237,9 +221,8 @@ class TicTacToe extends Component {
           </Alert.Heading>
           <p>
             {" "}
-            There are three different modes. The hardest uses minimax to always{" "}
-            <br /> make an optimal move. Try it to test out the minimax
-            algorithm, otherwise, <br />
+            There are three different modes. The hardest uses minimax to always <br /> make an optimal move. Try it to
+            test out the minimax algorithm, otherwise, <br />
             play easy/medium if you want a chance to win
           </p>
           <Row>
