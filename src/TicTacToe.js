@@ -207,16 +207,29 @@ class TicTacToe extends Component {
   render() {
     return (
       <div>
-        <Alert variant="success" style={{ display: this.state.gameOver ? "block" : "none" }}>
+        <Alert
+          variant={
+            this.state.playerWin === null && this.state.gameStarted
+              ? "warning"
+              : this.state.playerWin === true
+              ? "success "
+              : this.state.playerWin === false
+              ? "danger "
+              : "primary "
+          }
+          style={{ display: this.state.gameOver ? "block" : "none" }}
+        >
           <Button href="./Portfolio" style={{ float: "right" }}>
             Go Back
           </Button>
           <Alert.Heading>
-            {this.state.playerWin == null
-              ? "Welcome to TicTactToe! "
-              : this.state.playerWin
+            {this.state.playerWin === null && this.state.gameStarted
+              ? "Its a Draw! "
+              : this.state.playerWin === true
               ? "Congratulations! You Won! "
-              : "Sorry, you lost. "}
+              : this.state.playerWin === false
+              ? "Sorry, you lost. "
+              : "Welcome to TicTactToe! "}
             Pick a difficulty?
           </Alert.Heading>
           <p>

@@ -94,21 +94,15 @@ class IndexCarousel extends Component {
       <div>
         <Carousel height="50vh">
           <Carousel.Item interval={5000}>
-            <img
-              style={carouselImg}
-              className="d-block w-100"
-              src={niagraPic}
-              alt="Third slide"
-            />
+            <img style={carouselImg} className="d-block w-100" src={niagraPic} alt="Third slide" />
             <Carousel.Caption>
               <div style={myCaption1}>
                 <h1 style={h1Size}>Welcome,</h1>
                 <div>
                   <p style={pSize}>
                     {" "}
-                    I am a Senior Software Engineer interested in automation,
-                    artificial intelligence, and maximizing user experiences. I
-                    also love traveling <span style={emoji}>&#128747;</span>
+                    I am a Senior Software Engineer interested in automation, artificial intelligence, and maximizing
+                    user experiences. I also love traveling <span style={emoji}>&#128747;</span>
                   </p>
                   <Button style={carouselButtons} variant="primary">
                     <a href="#bottom" style={{ color: "white" }}>
@@ -127,43 +121,31 @@ class IndexCarousel extends Component {
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={5000}>
-            <img
-              style={carouselImg}
-              className="d-block w-100"
-              src={barcelonaPic}
-              alt="Third slide"
-            />
+            <img style={carouselImg} className="d-block w-100" src={barcelonaPic} alt="Third slide" />
             <Carousel.Caption>
               <div style={myCaption2}>
                 <h1 style={h1Size}>Full Stack Developer</h1>
                 <p style={pSize}>
-                  I have a masters in computer engineering as well as a diverse
-                  technical background ranging from low level control systems
-                  testing to full stack application development
+                  I have a masters in computer engineering as well as a diverse technical background ranging from low
+                  level control systems testing to full stack application development
                 </p>
-                <Button style={carouselButtons} variant="primary">
+                <Button href="/Portfolio" style={carouselButtons} variant="primary">
                   Interactive Portfolio
                 </Button>{" "}
-                <Button style={carouselButtons} variant="warning">
+                <Button href="/OtherProjects" style={carouselButtons} variant="warning">
                   Other Projects
                 </Button>{" "}
               </div>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={5000}>
-            <img
-              style={carouselImg}
-              className="d-block w-100"
-              src={mtFujiPic}
-              alt="First slide"
-            />
+            <img style={carouselImg} className="d-block w-100" src={mtFujiPic} alt="First slide" />
             <Carousel.Caption>
               <div style={myCaption3}>
                 <h1 style={h1Size}>Thanks for Visiting!</h1>
                 <p style={pSize}>
-                  Please feel free to reach out on linkedIn or by clicking
-                  below. I am always looking forward to new and challenging
-                  opportunities.
+                  Please feel free to reach out on linkedIn or by clicking below. I am always looking forward to new and
+                  challenging opportunities.
                 </p>
                 <Button style={carouselButtons} variant="warning">
                   <a href="/Contact" style={{ color: "black" }}>
