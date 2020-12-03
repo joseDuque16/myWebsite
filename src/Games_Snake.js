@@ -21,6 +21,7 @@ class GamesSnake extends Component {
       snakePos: [],
       gameLoss: false,
       snakeSpeed: 200,
+      mapSelected: false,
     };
     this.initializeMap = this.initializeMap.bind(this);
   }
@@ -33,10 +34,7 @@ class GamesSnake extends Component {
     if (this.state.map !== undefined && this.state.snakeInitialized === false) {
       this.initializeSnake();
       this.setState({ snakeInitialized: true });
-    } else if (
-      this.state.map !== undefined &&
-      this.state.appleInitialized === false
-    ) {
+    } else if (this.state.map !== undefined && this.state.appleInitialized === false) {
       this.createApple();
       this.setState({ appleInitialized: true });
     }
@@ -116,20 +114,11 @@ class GamesSnake extends Component {
         break;
     }
 
-    if (
-      curPos[0] < 0 ||
-      curPos[0] > 16 ||
-      curPos[1] < 0 ||
-      curPos[1] > 16 ||
-      snakeLookup[curPos[0] + "," + curPos[1]]
-    ) {
+    if (curPos[0] < 0 || curPos[0] > 16 || curPos[1] < 0 || curPos[1] > 16 || snakeLookup[curPos[0] + "," + curPos[1]]) {
       this.gameLost();
       return;
     } else {
-      if (
-        curPos[0] === this.state.applePos[0] &&
-        curPos[1] === this.state.applePos[1]
-      ) {
+      if (curPos[0] === this.state.applePos[0] && curPos[1] === this.state.applePos[1]) {
         // Check if we just ate an apple
         this.setSnake(curPos);
         snakeArr.unshift(curPos);
@@ -145,16 +134,22 @@ class GamesSnake extends Component {
   };
 
   /*******************************************      
+        MAP FOCUSED: - handles map focusing
+  *********************************************/
+  mapSelected = () => {
+    if (this.state.gameLoss === false) {
+      this.setState({ mapSelected: true });
+    }
+  };
+
+  /*******************************************      
         KEY PRESS: - handles user key inputs
   *********************************************/
   keyPress = (evt) => {
     // Dont let the user move the opposite of current direction
     if (this.state.lockInPos === "ArrowLeft" && evt.key === "ArrowRight") {
       return;
-    } else if (
-      this.state.lockInPos === "ArrowRight" &&
-      evt.key === "ArrowLeft"
-    ) {
+    } else if (this.state.lockInPos === "ArrowRight" && evt.key === "ArrowLeft") {
       return;
     } else if (this.state.lockInPos === "ArrowUp" && evt.key === "ArrowDown") {
       return;
@@ -163,18 +158,10 @@ class GamesSnake extends Component {
     }
 
     if (this.state.moveInterval === "") {
-      const snakeMoveInterval = setInterval(
-        this.snakeMove,
-        this.state.snakeSpeed
-      );
+      const snakeMoveInterval = setInterval(this.snakeMove, this.state.snakeSpeed);
       this.setState({ moveInterval: snakeMoveInterval });
     }
-    if (
-      evt.key === "ArrowLeft" ||
-      evt.key === "ArrowRight" ||
-      evt.key === "ArrowUp" ||
-      evt.key === "ArrowDown"
-    ) {
+    if (evt.key === "ArrowLeft" || evt.key === "ArrowRight" || evt.key === "ArrowUp" || evt.key === "ArrowDown") {
       this.setState({ lastKeyDown: evt.key });
     }
   };
@@ -240,9 +227,8 @@ class GamesSnake extends Component {
         GAME LOST: - Interval function
   *********************************************/
   gameLost = () => {
-    this.setState({ gameLoss: true });
     clearInterval(this.state.moveInterval);
-    this.setState({ score: this.state.snakePos.length });
+    this.setState({ score: this.state.snakePos.length, gameLoss: true });
   };
 
   /*******************************************      
@@ -255,7 +241,7 @@ class GamesSnake extends Component {
       this.clearSnake(pos);
     }
     this.initializeSnake();
-    this.setState({ moveInterval: "", gameLoss: false, snakeSpeed: newSpeed });
+    this.setState({ moveInterval: "", gameLoss: false, snakeSpeed: newSpeed, mapSelected: false, lockInPos: "" });
   };
 
   /*******************************************      
@@ -271,7 +257,7 @@ class GamesSnake extends Component {
           style={{
             margin: "0px",
             padding: "0px",
-            height: "2.15vw",
+            height: "2.25vw",
             width: "5.88%",
           }}
         >
@@ -322,18 +308,17 @@ class GamesSnake extends Component {
         onKeyDown={(evt) => {
           this.keyPress(evt);
         }}
+        onClick={(evt) => {
+          this.mapSelected();
+        }}
         tabIndex="0"
       >
         <Button href="./Portfolio" style={{ float: "right" }}>
           Go Back
         </Button>
-        <Alert
-          variant="danger"
-          style={{ display: this.state.gameLoss ? "block" : "none" }}
-        >
+        <Alert variant="danger" style={{ display: this.state.gameLoss ? "block" : "none" }}>
           <Alert.Heading>
-            Congratulations! Your score was : <b> {this.state.score}</b>{" "}
-            <br></br> Pick a new difficulty?
+            Congratulations! Your score was : <b> {this.state.score}</b> <br></br> Pick a new difficulty?
           </Alert.Heading>
           <Row>
             <Col>
@@ -375,13 +360,29 @@ class GamesSnake extends Component {
           style={{
             margin: "auto",
             verticalAlign: "middle",
-            paddingTop: "18px",
+            paddingTop: "10px",
+            paddingBottom: "10px",
             width: "70%",
           }}
         >
-          {this.renderMap()}
+          <div>{this.renderMap()}</div>
+          <div
+            style={{
+              position: "absolute",
+              bottom: "0",
+              top: "40%",
+              right: "0",
+              left: "0",
+              margin: "auto",
+              width: "50%",
+              display: this.state.mapSelected ? "none" : "block",
+            }}
+          >
+            <Alert variant="success">
+              <Alert.Heading>Click the field to start!</Alert.Heading>
+            </Alert>
+          </div>
         </Container>
-        <br></br>
       </div>
     );
   }

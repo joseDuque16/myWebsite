@@ -64,3 +64,8 @@
 p {
   font-size: 19px;
 }
+
+#button-tooltip {
+  width: 300px;
+  color: blue;
+}

@@ -1,5 +1,5 @@
 // determines optimal move
-export default function miniMax(board, playerPiece) {
+export function miniMax(board, playerPiece) {
   // Find the remaining possible moves
   var remainder = [];
   for (let i in board) {
