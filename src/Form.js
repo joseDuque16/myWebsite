@@ -16,7 +16,7 @@ class Form extends Component {
       message: "",
       showAlert: "none",
       emailMsg: "",
-      apiResponse: { success: "default response" },
+      apiResponse: "",
     };
 
     this.handleSubmission = this.handleSubmission.bind(this);
@@ -37,11 +37,7 @@ class Form extends Component {
   };
 
   handleSubmission = () => {
-    if (
-      this.state.name === "" ||
-      this.state.email === "" ||
-      this.state.message === ""
-    ) {
+    if (this.state.name === "" || this.state.email === "" || this.state.message === "") {
       window.alert("One or more sections incomplete");
       return false;
     } else if (this.state.email.search("@") == -1) {
@@ -122,6 +118,7 @@ class Form extends Component {
       display: this.state.showAlert,
     };
 
+    console.log("zzzzzzzzzzzzzzzz" + this.state.apiResponse);
     return (
       <div style={div}>
         <Alert
@@ -130,22 +127,13 @@ class Form extends Component {
           onClose={() => this.setState({ showAlert: "none" })}
           dismissible
         >
-          <Alert.Heading>
-            Thank you {this.state.name} for reaching out!{" "}
-          </Alert.Heading>
-          <p>
-            Your email has been sent and I will reach back to you at{" "}
-            {this.state.email}
-          </p>
+          <Alert.Heading>Thank you {this.state.name} for reaching out! </Alert.Heading>
+          <p>Your email has been sent and I will reach back to you at {this.state.email}</p>
         </Alert>
         <br></br>
         <div style={loading}>
           <br></br>
-          <Spinner
-            style={{ margin: "auto" }}
-            animation="border"
-            variant="primary"
-          />
+          <Spinner style={{ margin: "auto" }} animation="border" variant="primary" />
           <br></br>
           <h2> Sending Email ...</h2>
           <br></br>

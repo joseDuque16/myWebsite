@@ -66,6 +66,7 @@ class IndexCarousel extends Component {
 
     const h1Size = {
       fontSize: "2.0vw",
+      color: "white",
     };
 
     const pSize = {
@@ -137,7 +138,7 @@ class IndexCarousel extends Component {
                 <Button href="/Portfolio" style={carouselButtons} variant="info">
                   Interactive Portfolio
                 </Button>{" "}
-                <Button href="/OtherProjects" style={carouselButtons} variant="success">
+                <Button href="/Projects" style={carouselButtons} variant="success">
                   Other Projects
                 </Button>{" "}
               </div>

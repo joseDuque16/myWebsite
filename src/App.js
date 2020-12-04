@@ -13,6 +13,7 @@ import Footer from "./Footer";
 import Resume from "./Resume";
 import Form from "./Form";
 import Games from "./Games";
+import Projects from "./Projects";
 
 class App extends Component {
   constructor(props) {
@@ -52,6 +53,9 @@ class App extends Component {
           </Route>
           <Route path="/Portfolio">
             <Games bgcolor="#f7e9c5"></Games>
+          </Route>
+          <Route path="/Projects">
+            <Projects bgcolor="#f7e9c5"></Projects>
           </Route>
         </Router>
         <Footer />

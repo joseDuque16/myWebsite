@@ -383,6 +383,7 @@ function placePiece(board, yPos) {
  * Evaluate State  when the depth limit is reached by placing a piece on every position
  * and determening how many winning positions each side has
  *************************************************************/
+// TODO : add value to 3 pairings and 2 pairings, not just for wins
 function evaluateValue(board) {
   var playerValue = 0;
   var aiValue = 0;
@@ -395,12 +396,15 @@ function evaluateValue(board) {
 
       // if the field is empty
       if (board[x][y] === null) {
-        var output = isWin(board, true, newPos);
+        var boardClone = deepCopyArray(board);
+        boardClone[x][y] = true;
+        var output = isWin(boardClone, true, newPos);
         if (output) {
           // user win move detected, add to current user score
           playerValue += currentRowValue;
         } else {
-          var output = isWin(board, false, newPos);
+          boardClone[x][y] = false;
+          var output = isWin(boardClone, false, newPos);
           if (output) {
             // AI win move detected, add to current ai score
             aiValue += currentRowValue;

@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 class Footer extends Component {
   render() {
     const footerStyle = {
-      padding: "3px 1px",
+      paddingTop: "6px",
       background: "#484f57",
       color: "rgba(255,255,255,.5)",
     };
@@ -25,8 +25,8 @@ class Footer extends Component {
           <Row md>
             <Col md>
               <p className="globalText">
-                Built by <b>Jose Duque</b> | Developed using MERN stack | Hosted
-                on AWS | <a href="#top">Back to top</a>
+                Built by <b>Jose Duque</b> | Developed using MERN stack | Hosted on AWS |{" "}
+                <a href="#top">Back to top</a>
               </p>
             </Col>
           </Row>

@@ -15,6 +15,7 @@ class ConnectFour extends Component {
   constructor(props) {
     super(props);
 
+    // ANCHOR state
     this.state = {
       playerPiece: true, //true is x, false is 0, null is empty
       gameOver: true,
@@ -37,7 +38,7 @@ class ConnectFour extends Component {
     };
   }
 
-  // Assigns a difficulty after the user picks a difficulty
+  // ANCHOR pickedDifficulty
   pickedDifficulty = (difficulty) => {
     this.setState({
       gameStarted: true,
@@ -47,7 +48,7 @@ class ConnectFour extends Component {
     this.resetBoard();
   };
 
-  // Makes a computer move based on the difficulty picked
+  //ANCHOR ReactAI Makes a computer move based on the difficulty picked
   computerMove = () => {
     var curDiff = this.state.gameDifficulty;
     var myBoard = this.state.board;
@@ -64,13 +65,43 @@ class ConnectFour extends Component {
       y = miniMaxAI(myBoard, false, numTurns, aiDifficulty);
       this.makeMove(false, y, myBoard);
     } else if (curDiff === "hard") {
-      let aiDifficulty = 6;
+      let aiDifficulty = 8;
       y = miniMaxAI(myBoard, false, numTurns, aiDifficulty);
       this.makeMove(false, y, myBoard);
     }
     console.log("computer picked y : " + y);
   };
 
+  // ANCHOR NodeAI - connect four using server calls
+  async computerMoveServer() {
+    let difficulty;
+    if (this.gameDifficulty === "hard") {
+      difficulty = 8;
+    } else if (this.gameDifficulty === "medium") {
+      difficulty = 5;
+    } else {
+      difficulty = 1;
+    }
+
+    var data = {
+      board: this.state.board,
+      numTurns: this.state.numTurns,
+      searchDepth: difficulty,
+    };
+
+    await fetch("http://localhost:8080/connectFour/playerMoved", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => this.makeMove(false, data.move, this.state.board));
+  }
+
+  // ANCHOR resetBoard
   resetBoard = () => {
     var clearBoard = [
       [null, null, null, null, null, null, null],
@@ -90,6 +121,7 @@ class ConnectFour extends Component {
     });
   };
 
+  // ANCHOR moveAnimation
   moveAnimation = () => {
     var curAnimationState = this.state.midAnimation;
     var prevPosition = this.state.prevPosition;
@@ -136,7 +168,7 @@ class ConnectFour extends Component {
       // change to the next players turn
       if (this.state.computerMove === false) {
         // its time to change control to AI
-        var output = isWin(myBoard, true, prevPosition); // Check if player won
+        let output = isWin(myBoard, true, prevPosition); // Check if player won
 
         if (output === true) {
           this.setState({
@@ -153,7 +185,7 @@ class ConnectFour extends Component {
         }
       } else {
         // Its time to change control back to player
-        var output = isWin(myBoard, false, prevPosition); // Check if ai won
+        let output = isWin(myBoard, false, prevPosition); // Check if ai won
 
         if (output === true) {
           this.setState({
@@ -174,12 +206,17 @@ class ConnectFour extends Component {
         myBoard[curX - 1][curY] = null; // clear the previous chip
       }
 
-      this.setState(function (state, props) {
-        return { board: myBoard, midAnimation: curAnimationState, prevPosition: prevPosition };
+      this.setState(function () {
+        return {
+          board: myBoard,
+          midAnimation: curAnimationState,
+          prevPosition: prevPosition,
+        };
       });
     }
   };
 
+  // ANCHOR: makeMove
   makeMove = (isPlayer, curY, myBoard) => {
     var playerPiece = isPlayer;
     var validMove;
@@ -207,9 +244,15 @@ class ConnectFour extends Component {
     }
   };
 
+  //ANCHOR: onPlayerMove
   onPlayerMove = (x, y) => {
     // break if the selected buttons are not the designated play buttons
-    if (x !== 10 || this.state.computerMove === true || this.state.gameStarted === false) {
+    if (
+      x !== 10 ||
+      this.state.computerMove === true ||
+      this.state.gameStarted === false ||
+      this.state.midAnimation !== null
+    ) {
       return;
     }
     var myBoard = this.state.board;
@@ -225,7 +268,7 @@ class ConnectFour extends Component {
     console.log("player moved on position:" + y);
   };
 
-  // Change the color of the input buttons when the user hovers over them
+  //ANCHOR hoverOveButton Change the color of the input buttons when the user hovers over them
   hoverOverButton = (val, idx, isMouseOver) => {
     if (val !== 10 || this.state.computerMove === true) {
       return;
@@ -240,7 +283,7 @@ class ConnectFour extends Component {
     });
   };
 
-  // Render one row of the board
+  //ANCHOR connectFourRenderRow Render one row of the board
   connectFourRenderRow = (val) => {
     var row = [0, 1, 2, 3, 4, 5, 6];
 
