@@ -14,14 +14,14 @@
  * playerPiece = true if player false if AI by default
  * playerMoves = an array of all of the current moves
  **********************************************************/
-export function isWin(board, playerPiece, move) {
+export function isWin(board, playerPiece, move, winCondition = 4) {
   //iterate through all of the playerMoves, for each position check the neighboring nodes in horizontal, vertical, and diagonal fashion
   if (
     // best way to do this is to check only for the new chip that is placed
-    diagonalWin2(board, playerPiece, move) ||
-    verticalWin(board, playerPiece, move) ||
-    horizontalWin(board, playerPiece, move) ||
-    diagonalWin1(board, playerPiece, move)
+    diagonalWin2(board, playerPiece, move, winCondition) ||
+    verticalWin(board, playerPiece, move, winCondition) ||
+    horizontalWin(board, playerPiece, move, winCondition) ||
+    diagonalWin1(board, playerPiece, move, winCondition)
   ) {
     return true;
   } else {
@@ -30,12 +30,12 @@ export function isWin(board, playerPiece, move) {
 }
 
 // is a win on -horizontal  fashion accross the board
-function horizontalWin(board, playerPiece, move) {
+function horizontalWin(board, playerPiece, move, winCondition) {
   var count = 0;
   for (var y = 0; y < 7; y++) {
     if (board[move[0]][y] === playerPiece) {
       count++;
-      if (count === 4) {
+      if (count === winCondition) {
         return true;
       }
     } else {
@@ -45,12 +45,12 @@ function horizontalWin(board, playerPiece, move) {
 }
 
 // is a win on |vertical  fashion accross the board
-function verticalWin(board, playerPiece, move) {
+function verticalWin(board, playerPiece, move, winCondition) {
   var count = 0;
   for (var x = 0; x < 6; x++) {
     if (board[x][move[1]] === playerPiece) {
       count++;
-      if (count === 4) {
+      if (count === winCondition) {
         return true;
       }
     } else {
@@ -60,7 +60,7 @@ function verticalWin(board, playerPiece, move) {
 }
 
 // Is a win in either / or \ fasion diagonally on the board
-function diagonalWin1(board, playerPiece, move) {
+function diagonalWin1(board, playerPiece, move, winCondition) {
   /// OPERATION FOR / DIAGONAL CHECK
   let startPos = [
     [3, 0],
@@ -114,7 +114,7 @@ function diagonalWin1(board, playerPiece, move) {
   };
 
   var idx = diagonalMap[move[0] + "," + move[1]];
-  if (idx == undefined) {
+  if (idx === undefined) {
     return false;
   }
   let start = startPos[idx];
@@ -125,7 +125,7 @@ function diagonalWin1(board, playerPiece, move) {
   do {
     if (board[start[0]][start[1]] === playerPiece) {
       count++;
-      if (count > 3) {
+      if (count > winCondition - 1) {
         return true;
       }
     } else {
@@ -139,7 +139,7 @@ function diagonalWin1(board, playerPiece, move) {
   return false;
 }
 
-function diagonalWin2(board, playerPiece, move) {
+function diagonalWin2(board, playerPiece, move, winCondition) {
   /// OPERATION FOR \ DIAGONAL CHECK
   let endPos = [
     [0, 3],
@@ -192,7 +192,7 @@ function diagonalWin2(board, playerPiece, move) {
   };
 
   var idx = diagonalMap[move[0] + "," + move[1]];
-  if (idx == undefined) {
+  if (idx === undefined) {
     return false;
   }
   let start = startPos[idx];
@@ -203,7 +203,7 @@ function diagonalWin2(board, playerPiece, move) {
   do {
     if (board[start[0]][start[1]] === playerPiece) {
       ++count;
-      if (count > 3) {
+      if (count > winCondition - 1) {
         return true;
       }
     } else {
@@ -249,9 +249,18 @@ export function miniMaxAI(board, aiPiece, numTurns, searchDepth) {
 
   console.log(output);
 
-  var max = output[0];
-  var maxIdx = possibleMoves[0];
-  for (var i = 1; i < possibleMoves.length; i++) {
+  var max = output[Math.floor(possibleMoves.length / 2)];
+  var maxIdx = possibleMoves[Math.floor(possibleMoves.length / 2)];
+  console.log(max + "," + maxIdx + "," + possibleMoves.length / 2);
+
+  for (var i = Math.floor(possibleMoves.length / 2); i > -1; i--) {
+    if (output[i] > max) {
+      max = output[i];
+      maxIdx = possibleMoves[i];
+    }
+  }
+
+  for (var i = Math.floor(possibleMoves.length / 2) + 1; i < possibleMoves.length; i++) {
     if (output[i] > max) {
       max = output[i];
       maxIdx = possibleMoves[i];
@@ -318,9 +327,9 @@ function aplhaBetaPruning(
     return bestVal;
   } else {
     // for minimizer - if current value is less than beta value, skip
-    var bestVal = Infinity;
+    bestVal = Infinity;
 
-    for (var i = 0; i < 7; i++) {
+    for (i = 0; i < 7; i++) {
       let move = placePiece(board, i);
       if (move == null) continue;
       let boardClone = deepCopyArray(board);
@@ -387,7 +396,7 @@ function placePiece(board, yPos) {
 function evaluateValue(board) {
   var playerValue = 0;
   var aiValue = 0;
-  var currentRowValue = 5;
+  var currentRowValue = 10;
 
   for (var x = 0; x < 6; x++) {
     currentRowValue--;
@@ -403,11 +412,25 @@ function evaluateValue(board) {
           // user win move detected, add to current user score
           playerValue += currentRowValue;
         } else {
+          // check if isWin with three
+          output = isWin(boardClone, false, newPos, 3);
+          if (output) {
+            playerValue = playerValue + currentRowValue - 4;
+          }
+
+          // check if ai wins with 4
           boardClone[x][y] = false;
-          var output = isWin(boardClone, false, newPos);
+          output = isWin(boardClone, false, newPos);
+
           if (output) {
             // AI win move detected, add to current ai score
             aiValue += currentRowValue;
+          } else {
+            // check if ai can make 3 if not 4 in a row
+            output = isWin(boardClone, false, newPos, 3);
+            if (output) {
+              aiValue = playerValue + currentRowValue - 4;
+            }
           }
         }
       }

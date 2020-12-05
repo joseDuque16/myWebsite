@@ -65,7 +65,7 @@ class ConnectFour extends Component {
       y = miniMaxAI(myBoard, false, numTurns, aiDifficulty);
       this.makeMove(false, y, myBoard);
     } else if (curDiff === "hard") {
-      let aiDifficulty = 8;
+      let aiDifficulty = 6;
       y = miniMaxAI(myBoard, false, numTurns, aiDifficulty);
       this.makeMove(false, y, myBoard);
     }
