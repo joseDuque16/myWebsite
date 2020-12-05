@@ -62,7 +62,6 @@ class Form extends Component {
         });
       } else {
         clearInterval(this.state.myInterval);
-        console.log("still running");
         this.setState({
           showForm: "false",
         });
@@ -120,7 +119,6 @@ class Form extends Component {
       display: this.state.showAlert,
     };
 
-    console.log("zzzzzzzzzzzzzzzz" + this.state.apiResponse);
     return (
       <div style={div}>
         <Alert
