@@ -78,16 +78,13 @@ class Form extends Component {
       message: this.state.message,
     };
 
-    const fetchEmail = await fetch(
-      "http://duque-node.us-east-2.elasticbeanstalk.com/email/submit",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    ).then((response) => response.json());
+    const fetchEmail = await fetch("https://services.joseduque.io/email/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((response) => response.json());
 
     const fetchEmailResponse = fetchEmail;
 
