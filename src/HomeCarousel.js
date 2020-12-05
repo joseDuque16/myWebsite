@@ -131,8 +131,7 @@ class IndexCarousel extends Component {
                 <h1 style={h1Size}>Full Stack Developer</h1>
                 <p style={pSize}>
                   I have a masters in computer engineering as well as a diverse technical background
-                  ranging from low level control systems testing to full stack application
-                  development
+                  at all stages of the software lifecycle
                 </p>
                 <Button href="/Portfolio" style={carouselButtons} variant="info">
                   Interactive Portfolio

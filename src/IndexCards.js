@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
-import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import IndexCardLink from "./IndexCardLink";
 import languagesPic from "./languages.jpg";
 import frontendPic from "./frontend.jpg";
@@ -401,9 +397,8 @@ class IndexCard extends Component {
                       <li>
                         <p>
                           <b>Time Management {" & "} Self Motivation </b> - My passions and
-                          ambitions for software development extend farther than 9-5. I will not
-                          stop until i have finished a project or a feature, even if that means
-                          working longer and harder than your average developer
+                          ambitions for software development extend further than 9-5. When I am
+                          passionate about a project I will not stop until it is complete.
                         </p>
                       </li>
                       <li>
@@ -412,8 +407,7 @@ class IndexCard extends Component {
                           field of study I am unwilling to tackle. I have a Masters {" & "}{" "}
                           Bachelors degree in Computer and Electrical Engineering but the field of
                           Software Development is one of rapid growth. I am constantly learning and
-                          applying my knowledge of new technologies. Most recently I have started a
-                          deep dive of Artificial Intelligence, and Machine learning libraries
+                          applying my knowledge of new technologies.
                         </p>
                       </li>
                     </ul>
