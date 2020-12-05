@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import unbeatable from "./unbeatable.JPG";
+import unbeatable from "./unbeatable.jpg";
 import justus from "./justus.jpg";
 import convergence from "./convergence.jpg";
 import Container from "react-bootstrap/Container";
