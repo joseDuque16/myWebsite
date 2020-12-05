@@ -80,7 +80,7 @@ class Form extends Component {
     };
 
     const fetchEmail = await fetch(
-      "http://duque-node.us-east-2.elasticbeanstalk.com/email/submit",
+      "https://duque-node.us-east-2.elasticbeanstalk.com/email/submit",
       {
         method: "POST",
         headers: {
