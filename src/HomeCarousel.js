@@ -4,7 +4,6 @@ import mtFujiPic from "./mtfuji2.jpg";
 import barcelonaPic from "./barcelona2.jpg";
 import niagraPic from "./niagra2.jpg";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 
 class IndexCarousel extends Component {
   render() {

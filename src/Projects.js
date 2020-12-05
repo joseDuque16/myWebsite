@@ -5,10 +5,6 @@ import unbeatable from "./unbeatable.JPG";
 import justus from "./justus.jpg";
 import convergence from "./convergence.jpg";
 import Container from "react-bootstrap/Container";
-import { Timeline } from "antd";
-import { ClockCircleOutlined } from "@ant-design/icons";
-import "antd/dist/antd.css";
-import "./index.css";
 
 class Projects extends Component {
   constructor(props) {
