@@ -81,7 +81,7 @@ class Projects extends Component {
                   title="Unbeatable App"
                   image={unbeatable}
                   qualifier="(In Development)"
-                  text="The Unbeatable App is a React Native application for both Android and iOS that is a collection of all of my game breaking algorithms that can be used to make the most optimal moves for various types of board games (including): Scrabble, Sudoku, Chess, ConnectFour, BlackJack, Battleship, etc. Additionally as part of my venture into machine learning I am expanding my backend API to utilize the TensorFlow library, as well as refactoring my code to better utilize clustering."
+                  text="The Unbeatable App is a React Native application for both Android and iOS that is a collection of all of my game breaking algorithms that can be used to make the most optimal moves for various types of board games (including): Scrabble, Sudoku, Chess, ConnectFour, BlackJack, Battleship, etc. Additionally as part of my venture into machine learning I am expanding my backend API to utilize the TensorFlow library, as well as refactoring my code to better utilize multithreading through the creation of asynchronous child processes."
                 ></this.createProject>
                 <br></br>
                 <this.createProject

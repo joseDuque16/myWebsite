@@ -180,7 +180,11 @@ class IndexCard extends Component {
                   <p style={{ display: "inline" }}>6 years of experience</p>
                   <br></br>
                   <br></br>
-                  <h5 style={{ display: "inline" }}>Android Development - </h5>
+                  <h5 style={{ display: "inline" }}>Progressive Web App Development - </h5>
+                  <p style={{ display: "inline" }}>1 year of experience</p>
+                  <br></br>
+                  <br></br>
+                  <h5 style={{ display: "inline" }}>React Native App Development - </h5>
                   <p style={{ display: "inline" }}>1 year of experience</p>
                   <br></br>
                   <br></br>
@@ -194,15 +198,17 @@ class IndexCard extends Component {
                 <MyCard header="Frontend" img={frontendPic} text="pietext">
                   <h5>React {"&"} React-Native</h5>
                   <br></br>
-                  <h5>HTML {"&"} CSS </h5>
+                  <h5>Redux</h5>
+                  <br></br>
+                  <h5>
+                    HTML {"&"} CSS {"&"} AJAX
+                  </h5>
                   <br></br>
                   <h5>Responsive Web Design</h5>
                   <br></br>
                   <h5>HTML DOM {"&"} BOM</h5>
                   <br></br>
                   <h5>Bootstrap {"&"} React-Bootstrap</h5>
-                  <br></br>
-                  <h5>AJAX </h5>
                   <br></br>
                 </MyCard>
                 <MyCard header="Backend" img={backendPic} text="pietext">
