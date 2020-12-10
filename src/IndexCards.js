@@ -184,14 +184,10 @@ class IndexCard extends Component {
                   <p style={{ display: "inline" }}>1 year of experience</p>
                   <br></br>
                   <br></br>
-                  <h5 style={{ display: "inline" }}>React Native App Development - </h5>
-                  <p style={{ display: "inline" }}>1 year of experience</p>
-                  <br></br>
-                  <br></br>
                   <h5 style={{ display: "inline" }}>Node Package Manager (NPM)</h5>
                   <br></br>
                   <br></br>
-                  <h5 style={{ display: "inline" }}>Github</h5>
+                  <h5 style={{ display: "inline" }}>Git {" & "} CI/CD {" & "} Scrum</h5>
                   <br></br>
                   <br></br>
                 </MyCard>
@@ -214,9 +210,9 @@ class IndexCard extends Component {
                 <MyCard header="Backend" img={backendPic} text="pietext">
                   <h5>MongoDB {" & "} SQL Server</h5>
                   <br></br>
-                  <h5>Node {"&"} Express </h5>
+                  <h5>Node {" & "} Express </h5>
                   <br></br>
-                  <h5>AWS (Elastic BeanStalk)</h5>
+                  <h5>Docker / AWS (Elastic BeanStalk)</h5>
                   <br></br>
                   <h5>AWS (Amplify {" & "} S3)</h5>
                   <br></br>
