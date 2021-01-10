@@ -302,7 +302,6 @@ function Tetris(props) {
               ></RenderTetris>
             )}
           </div>
-          ;
         </Col>
         <Col xs>
           <div>
