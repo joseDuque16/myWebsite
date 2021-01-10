@@ -4,10 +4,10 @@ import Col from "react-bootstrap/Col";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import lightGreenField from "./lightGreenField.jpg";
-import darkGreenField from "./darkGreenField.jpg";
-import showSnake from "./showSnake.jpg";
-import showApple from "./showApple.jpg";
+import lightGreenField from "./Images/lightGreenField.jpg";
+import darkGreenField from "./Images/darkGreenField.jpg";
+import showSnake from "./Images/showSnake.jpg";
+import showApple from "./Images/showApple.jpg";
 
 class GamesSnake extends Component {
   constructor(props) {
@@ -114,7 +114,13 @@ class GamesSnake extends Component {
         break;
     }
 
-    if (curPos[0] < 0 || curPos[0] > 16 || curPos[1] < 0 || curPos[1] > 16 || snakeLookup[curPos[0] + "," + curPos[1]]) {
+    if (
+      curPos[0] < 0 ||
+      curPos[0] > 16 ||
+      curPos[1] < 0 ||
+      curPos[1] > 16 ||
+      snakeLookup[curPos[0] + "," + curPos[1]]
+    ) {
       this.gameLost();
       return;
     } else {

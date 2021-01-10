@@ -4,9 +4,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
-import white from "./white.jpg";
-import oImage from "./oImage.jpg";
-import xImage from "./xImage.jpg";
+import white from "./Images/white.jpg";
+import oImage from "./Images/oImage.jpg";
+import xImage from "./Images/xImage.jpg";
 import { miniMax } from "./TicTacToeAI";
 
 class TicTacToe extends Component {
@@ -137,11 +137,7 @@ class TicTacToe extends Component {
   };
 
   playerMoved = (idx) => {
-    if (
-      this.state.computerMove ||
-      this.state.gameStarted === false ||
-      this.state.boardStatus[idx] !== null
-    ) {
+    if (this.state.computerMove || this.state.gameStarted === false || this.state.boardStatus[idx] !== null) {
       return;
     }
     var board = this.state.boardStatus;
@@ -242,9 +238,8 @@ class TicTacToe extends Component {
           </Alert.Heading>
           <p>
             {" "}
-            There are three different modes. The hardest uses minimax to always make an optimal
-            move. Try it to test out the minimax algorithm, otherwise, play easy/medium if you want
-            a chance to win
+            There are three different modes. The hardest uses minimax to always make an optimal move. Try it to test out
+            the minimax algorithm, otherwise, play easy/medium if you want a chance to win
           </p>
           <Row>
             <Col>

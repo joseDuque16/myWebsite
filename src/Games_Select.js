@@ -6,6 +6,7 @@ import Alert from "react-bootstrap/esm/Alert";
 import GamesSnake from "./Games_Snake";
 import TicTacToe from "./TicTacToe";
 import ConnectFour from "./ConnectFour";
+import Tetris from "./Tetris";
 
 class GamesSelect extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class GamesSelect extends Component {
   render() {
     const myGamesRow1 = ["TicTacToe", "ConnectFour"];
 
-    const myGamesRow2 = ["Chess (Under Construction)", "Sudoku Solver (Under Construction)"];
+    const myGamesRow2 = ["Tetris", "Sudoku Solver (Under Construction)"];
 
     const myGamesRow3 = ["Word Search Solver (Under Construction)", "Snake"];
 
@@ -44,6 +45,10 @@ class GamesSelect extends Component {
 
     const ConnectFour_Stye = {
       display: this.state.page === "ConnectFour" ? "block" : "none",
+    };
+
+    const Tetris_Style = {
+      display: this.state.page === "Tetris" ? "block" : "none",
     };
 
     const createGamesRow = (input, idxInput) => {
@@ -83,9 +88,9 @@ class GamesSelect extends Component {
             <Alert variant="info">
               <Alert.Heading> Interactive Portfolio </Alert.Heading> <hr />
               <p>
-                As well as working on my own projects and being an active competitor on coding
-                websites, I like building games and trying to automate them. Please enjoy some
-                sample projects that i have adapted for my react website:
+                As well as working on my own projects and being an active competitor on coding websites, I like building
+                games and trying to automate them. Please enjoy some sample projects that i have adapted for my react
+                website:
               </p>
             </Alert>
           </div>
@@ -101,6 +106,9 @@ class GamesSelect extends Component {
         </div>
         <div style={ConnectFour_Stye}>
           <ConnectFour></ConnectFour>
+        </div>
+        <div style={Tetris_Style}>
+          <Tetris></Tetris>
         </div>
       </div>
     );

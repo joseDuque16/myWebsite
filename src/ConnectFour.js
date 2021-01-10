@@ -6,9 +6,9 @@ import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Tooltip from "react-bootstrap/Tooltip";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import red from "./red.jpg";
-import blue from "./blue.jpg";
-import gray from "./gray.jpg";
+import red from "./Images/red.jpg";
+import blue from "./Images/blue.jpg";
+import gray from "./Images/gray.jpg";
 import { isWin, miniMaxAI } from "./ConnectFourAI";
 
 class ConnectFour extends Component {
@@ -324,8 +324,7 @@ class ConnectFour extends Component {
               style={{
                 bottom: "20px",
                 left: "1.2vw",
-                visibility:
-                  (val === 10 && this.state.inputButtonColors[idx]) === red ? "visible" : "hidden",
+                visibility: (val === 10 && this.state.inputButtonColors[idx]) === red ? "visible" : "hidden",
               }}
             >
               Input
@@ -351,10 +350,9 @@ class ConnectFour extends Component {
 
   renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
-      The connect four game utilizes a minimax approach, like the tictactoe AI. However, the
-      possible moves for connect four are 4,531,985,219,092 vs 255,168 in tictactoe. To make this AI
-      computationally feasable on a browser, I utilized an alpha pruning approach to stop searching
-      when any good move is found.
+      The connect four game utilizes a minimax approach, like the tictactoe AI. However, the possible moves for connect
+      four are 4,531,985,219,092 vs 255,168 in tictactoe. To make this AI computationally feasable on a browser, I
+      utilized an alpha pruning approach to stop searching when any good move is found.
     </Tooltip>
   );
 
@@ -388,8 +386,7 @@ class ConnectFour extends Component {
           </Alert.Heading>
           <p>
             {" "}
-            Select Easy for a random AI, Medium and Hard both utilize an combination of MinMax
-            algorithm as well as a{" "}
+            Select Easy for a random AI, Medium and Hard both utilize an combination of MinMax algorithm as well as a{" "}
             <OverlayTrigger
               placement="bottom"
               width="100%"

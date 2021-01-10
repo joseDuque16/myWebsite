@@ -1,10 +1,10 @@
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import React, { Component } from "react";
-import myLogo from "./brandLogo.png";
-import linkedin from "./linkedin.png";
-import github from "./github.png";
-import leetcode from "./leetcode.png";
+import myLogo from "./Images/brandLogo.png";
+import linkedin from "./Images/linkedin.png";
+import github from "./Images/github.png";
+import leetcode from "./Images/leetcode.png";
 
 class HeadNavBar extends Component {
   render() {

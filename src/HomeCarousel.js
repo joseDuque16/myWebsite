@@ -1,8 +1,8 @@
 import Carousel from "react-bootstrap/Carousel";
 import React, { Component } from "react";
-import mtFujiPic from "./mtfuji2.jpg";
-import barcelonaPic from "./barcelona2.jpg";
-import niagraPic from "./niagra2.jpg";
+import mtFujiPic from "./Images/mtfuji2.jpg";
+import barcelonaPic from "./Images/barcelona2.jpg";
+import niagraPic from "./Images/niagra2.jpg";
 import Button from "react-bootstrap/Button";
 
 class IndexCarousel extends Component {
@@ -99,9 +99,8 @@ class IndexCarousel extends Component {
                 <div>
                   <p style={pSize}>
                     {" "}
-                    I am a Senior Software Engineer interested in automation, artificial
-                    intelligence, and maximizing user experiences. I also love traveling{" "}
-                    <span style={emoji}>&#128747;</span>
+                    I am a Senior Software Engineer interested in automation, artificial intelligence, and maximizing
+                    user experiences. I also love traveling <span style={emoji}>&#128747;</span>
                   </p>
                   <Button style={carouselButtons} variant="primary">
                     <a href="#bottom" style={{ color: "white" }}>
@@ -120,18 +119,13 @@ class IndexCarousel extends Component {
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={5000}>
-            <img
-              style={carouselImg}
-              className="d-block w-100"
-              src={barcelonaPic}
-              alt="Third slide"
-            />
+            <img style={carouselImg} className="d-block w-100" src={barcelonaPic} alt="Third slide" />
             <Carousel.Caption>
               <div style={myCaption2}>
                 <h1 style={h1Size}>Full Stack Developer</h1>
                 <p style={pSize}>
-                  I have a masters in computer engineering as well as a diverse technical background
-                  at all stages of the software lifecycle
+                  I have a masters in computer engineering as well as a diverse technical background at all stages of
+                  the software lifecycle
                 </p>
                 <Button href="/Portfolio" style={carouselButtons} variant="info">
                   Interactive Portfolio
@@ -148,8 +142,8 @@ class IndexCarousel extends Component {
               <div style={myCaption3}>
                 <h1 style={h1Size}>Thanks for Visiting!</h1>
                 <p style={pSize}>
-                  Please feel free to reach out on linkedIn or by clicking below. I am always
-                  looking forward to new and challenging opportunities.
+                  Please feel free to reach out on linkedIn or by clicking below. I am always looking forward to new and
+                  challenging opportunities.
                 </p>
                 <Button style={carouselButtons} variant="warning">
                   <a href="/Contact" style={{ color: "black" }}>
