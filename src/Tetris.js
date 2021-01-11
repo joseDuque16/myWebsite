@@ -3,6 +3,7 @@ import RenderTetris from "./RenderTetris";
 import RenderScore from "./RenderScore";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import Row from "react-bootstrap/Row";
 import { t_shape, L_shape, l_shape, square_shape, z_shape } from "./TetrisPieces";
@@ -265,6 +266,13 @@ function Tetris(props) {
       }
     }
 
+    for (let i = 0; i < nextPos.length; i++) {
+      if (TetrisMap[nextPos[i][0]][nextPos[i][1]] !== null) {
+        setuserInput(null);
+        return;
+      }
+    }
+
     setuserInput(null);
     setCurPiece(nextPos);
     return;
@@ -291,6 +299,9 @@ function Tetris(props) {
       }}
       tabIndex="0"
     >
+      <Button href="./Portfolio" style={{ float: "right" }}>
+        Go Back
+      </Button>
       <Row>
         <Col xs={6} style={{ marginLeft: "20%" }}>
           <div style={{ width: "80%", margin: "auto", backgroundColor: "#000033", marginTop: "5px" }}>
