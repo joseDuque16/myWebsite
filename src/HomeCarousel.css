@@ -1,0 +1,82 @@
+.carouselImage,
+.carouselImageLeft {
+  height: 34vw;
+  min-height: 300px;
+  object-fit: cover;
+}
+
+.carouselImageLeft {
+  object-position: 0% 50%;
+}
+
+.carouselButtons {
+  font-size: 1.2em;
+  margin-left: 1vw;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-color: lightblue;
+}
+
+.myCaption1,
+.myCaption2,
+.myCaption3 {
+  min-height: 2px;
+  padding: 0.4vw;
+  margin: auto;
+  font-family: Arial;
+  text-align: left;
+  background: white;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+  border-radius: 1rem;
+  z-index: 2;
+  backdrop-filter: blur(0.3rem);
+}
+
+.myCaption1 span {
+  font-size: 1.3em;
+}
+
+.myCaption1 p,
+.myCaption2 p,
+.myCaption3 p {
+  font-size: 1.3em;
+  color: white;
+}
+
+.myCaption1 h1,
+.myCaption2 h1,
+.myCaption3 h1 {
+  font-size: 1.7em;
+  color: white;
+}
+.myCaption1 {
+  width: 600px;
+  min-width: 50%;
+  max-width: 100%;
+  padding-top: 0.8em;
+  margin-bottom: 10%;
+  margin-top: 5%;
+  float: right;
+}
+
+.myCaption2 {
+  padding-top: 0.8vw;
+  padding-bottom: 0.8vw;
+  margin-bottom: 1vw;
+  width: 700px;
+  min-width: 40%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.myCaption3 {
+  padding-top: 0.8vw;
+  padding-bottom: 0.8vw;
+  margin-bottom: 1vw;
+  width: 620px;
+  min-width: 40%;
+  max-width: 100%;
+  float: left;
+}

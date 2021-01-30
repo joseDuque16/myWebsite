@@ -66,6 +66,20 @@ class IndexCard extends Component {
     };
   }
 
+  unrollText = (array) => {
+    let output = array.map((val, idx, arr) => {
+      return (
+        <>
+          <h5 style={{ display: "inline" }}>{val} </h5>
+          <br></br>
+          <br></br>
+        </>
+      );
+    });
+
+    return output;
+  };
+
   tabSelected = (eventKey) => {
     this.setState({ selected: eventKey });
     switch (eventKey) {
@@ -99,7 +113,11 @@ class IndexCard extends Component {
 
   render() {
     const tabColors = ["#D0e5fa", "#f7e9c5", "#a5cbaf"];
-    const curColor = this.state.selectedLink1 ? tabColors[0] : this.state.selectedLink2 ? tabColors[1] : tabColors[2];
+    const curColor = this.state.selectedLink1
+      ? tabColors[0]
+      : this.state.selectedLink2
+      ? tabColors[1]
+      : tabColors[2];
 
     const navContainer = {
       margin: "auto",
@@ -128,88 +146,67 @@ class IndexCard extends Component {
     return (
       <div style={container}>
         <Tab.Container defaultActiveKey="first">
-          <Nav style={navContainer} className="justify-content-center" variant="tabs" onSelect={this.tabSelected} fill>
+          <Nav
+            style={navContainer}
+            className="justify-content-center"
+            variant="tabs"
+            onSelect={this.tabSelected}
+            fill>
             <Nav.Item>
               <IndexCardLink
                 eventKey="first"
                 p="Technical Skills"
                 select={this.state.selectedLink1}
-                color={tabColors[0]}
-              ></IndexCardLink>
+                color={tabColors[0]}></IndexCardLink>
             </Nav.Item>
             <Nav.Item>
               <IndexCardLink
                 eventKey="second"
                 p="Experience"
                 select={this.state.selectedLink2}
-                color={tabColors[1]}
-              ></IndexCardLink>
+                color={tabColors[1]}></IndexCardLink>
             </Nav.Item>
             <Nav.Item>
               <IndexCardLink
                 eventKey="third"
                 p="Soft Skills"
                 select={this.state.selectedLink3}
-                color={tabColors[2]}
-              ></IndexCardLink>
+                color={tabColors[2]}></IndexCardLink>
             </Nav.Item>
           </Nav>
           <Tab.Content style={tabContainer}>
             <Tab.Pane eventKey="first">
               <Row style={rowStyle}>
                 <MyCard header="Languages / Other" img={languagesPic} text="">
-                  <h5 style={{ display: "inline" }}>Javascript - </h5>
-                  <p style={{ display: "inline" }}>5 years of experience</p>
-                  <br></br>
-                  <br></br>
-                  <h5 style={{ display: "inline" }}>Java - </h5>
-                  <p style={{ display: "inline" }}>4 years of experience</p>
-                  <br></br>
-                  <br></br>
-                  <h5 style={{ display: "inline" }}>Python - </h5>
-                  <p style={{ display: "inline" }}>6 years of experience</p>
-                  <br></br>
-                  <br></br>
-                  <h5 style={{ display: "inline" }}>Progressive Web App Development - </h5>
-                  <p style={{ display: "inline" }}>1 year of experience</p>
-                  <br></br>
-                  <br></br>
-                  <h5 style={{ display: "inline" }}>Node Package Manager (NPM)</h5>
-                  <br></br>
-                  <br></br>
-                  <h5 style={{ display: "inline" }}>
-                    Git {" & "} CI/CD {" & "} Scrum
-                  </h5>
-                  <br></br>
-                  <br></br>
+                  {this.unrollText([
+                    "Javascript, Typescript",
+                    "Java, Python",
+                    "Progressive Web Apps",
+                    "Node Package Manager (NPM)",
+                    "Continuous Integration  / Continuous Development (CI/CD)",
+                    "Version Control/ Git",
+                    "Agile Methodologies",
+                  ])}
                 </MyCard>
-                <MyCard header="Frontend" img={frontendPic} text="pietext">
-                  <h5>React {"&"} React-Native</h5>
-                  <br></br>
-                  <h5>Redux</h5>
-                  <br></br>
-                  <h5>
-                    HTML {"&"} CSS {"&"} AJAX
-                  </h5>
-                  <br></br>
-                  <h5>Responsive Web Design</h5>
-                  <br></br>
-                  <h5>HTML DOM {"&"} BOM</h5>
-                  <br></br>
-                  <h5>Bootstrap {"&"} React-Bootstrap</h5>
-                  <br></br>
+                <MyCard header="Frontend" img={frontendPic} text="">
+                  {this.unrollText([
+                    "React & React-Native",
+                    "Redux",
+                    "HTML/CSS/AJAX",
+                    "Responsive Web Design",
+                    "HTML DOM/ BOM",
+                    "Bootstrap/ React-Bootstrap",
+                    "Agile Methodologies",
+                  ])}
                 </MyCard>
-                <MyCard header="Backend" img={backendPic} text="pietext">
-                  <h5>MongoDB {" & "} SQL Server</h5>
-                  <br></br>
-                  <h5>Node {" & "} Express </h5>
-                  <br></br>
-                  <h5>Docker / AWS (Elastic BeanStalk)</h5>
-                  <br></br>
-                  <h5>AWS (Amplify {" & "} S3)</h5>
-                  <br></br>
-                  <h5>REST API Development</h5>
-                  <br></br>
+                <MyCard header="Backend" img={backendPic} text="">
+                  {this.unrollText([
+                    "MongoDB & SQL Server",
+                    "Node & Express",
+                    "Docker / AWS (Elastic BeanStalk)",
+                    "AWS (Amplify  &  S3)",
+                    "REST API Development",
+                  ])}
                 </MyCard>
               </Row>
             </Tab.Pane>
@@ -224,18 +221,20 @@ class IndexCard extends Component {
                     <ul>
                       <li>
                         <p>
-                          Lead multi-functional commercial and government/military proposals consisting of engineers,
-                          managers, cost estimators, contracts, and operations personnel as part of the Engineering New
-                          Business team.{" "}
+                          Lead multi-functional commercial and government/military proposals
+                          consisting of engineers, managers, cost estimators, contracts, and
+                          operations personnel as part of the Engineering New Business team.{" "}
                         </p>
                       </li>
                       <li>
                         <p>
                           {" "}
-                          Responsible for proposal schedule generation and management, management of proposal technical
-                          and management volumes, finding resource staffing with management and providing leadership to
-                          the bid team, closing knowledge gaps, managing and generating cost roll-ups for formal ROM
-                          submittals and FFP submittals, and making technical presentations to managers and directors.{" "}
+                          Responsible for proposal schedule generation and management, management of
+                          proposal technical and management volumes, finding resource staffing with
+                          management and providing leadership to the bid team, closing knowledge
+                          gaps, managing and generating cost roll-ups for formal ROM submittals and
+                          FFP submittals, and making technical presentations to managers and
+                          directors.{" "}
                         </p>
                       </li>
                     </ul>
@@ -249,30 +248,33 @@ class IndexCard extends Component {
                     <ul>
                       <li>
                         <p>
-                          Developed frontend/backend APIs for the BAE Systems proprietary Interface Control Document
-                          (ICD) tools for automated code generation and test verification using Javascript/ SQL Server /
-                          NodeJs/ HTML and CSS
+                          Developed frontend/backend APIs for the BAE Systems proprietary Interface
+                          Control Document (ICD) tools for automated code generation and test
+                          verification using Javascript/ SQL Server / NodeJs/ HTML and CSS
                         </p>
                       </li>
                       <li>
                         <p>
-                          Developer of the Interface Control Document (ICD) automation tool for the Common Data Network
-                          on the Boeing 777x. Individually developed tool chain and database for storing and processing
-                          XML based interface documents using Python, SQL, and XSLT.
+                          Developer of the Interface Control Document (ICD) automation tool for the
+                          Common Data Network on the Boeing 777x. Individually developed tool chain
+                          and database for storing and processing XML based interface documents
+                          using Python, SQL, and XSLT.
                         </p>
                       </li>
                       <li>
                         <p>
-                          Integration/Verification lead for the Circuit Breaker Interface Control (CBIC) application for
-                          the Boeing 777x Flight Control Module. Job included developing python tests to verify
-                          requirement coverage, and hardware debugging with logic analyzers and probes.
+                          Integration/Verification lead for the Circuit Breaker Interface Control
+                          (CBIC) application for the Boeing 777x Flight Control Module. Job included
+                          developing python tests to verify requirement coverage, and hardware
+                          debugging with logic analyzers and probes.
                         </p>
                       </li>
                       <li>
                         <p>
-                          Test developer/test verification engineer for the GE9X engine control system and the On-Board
-                          Inert Gas Generation System for the KC-390 jet. Tests were developed in GTI, a BAE Systems
-                          proprietary language and run to verify full compliance to the software requirements.
+                          Test developer/test verification engineer for the GE9X engine control
+                          system and the On-Board Inert Gas Generation System for the KC-390 jet.
+                          Tests were developed in GTI, a BAE Systems proprietary language and run to
+                          verify full compliance to the software requirements.
                         </p>
                       </li>
                     </ul>
@@ -280,16 +282,17 @@ class IndexCard extends Component {
                   </div>
                 </MyCard>
                 <MyCard header="Intel - Linux Kernel Developer" img={intellogoPic} text="pietext">
-                  <h4>Feb 2018- August 2019</h4>
+                  <h4>June 2015- August 2015</h4>
                   <hr></hr>
                   <div style={{ textAlign: "left", marginRight: "1vw" }}>
                     <ul>
                       <li>
                         <p>
-                          Wrote and submitted patches for the Linux kernel and Linux UEFI Validation Project (LUV).
-                          Patches focused on reducing the size of the kernel proper by reducing the amount of zero
-                          padding through the implementation of a smaller page alignment. Achieved a kernel proper size
-                          reduction of 23% using varying approaches
+                          Wrote and submitted patches for the Linux kernel and Linux UEFI Validation
+                          Project (LUV). Patches focused on reducing the size of the kernel proper
+                          by reducing the amount of zero padding through the implementation of a
+                          smaller page alignment. Achieved a kernel proper size reduction of 23%
+                          using varying approaches
                         </p>
                       </li>
                     </ul>
@@ -303,27 +306,31 @@ class IndexCard extends Component {
             <Tab.Pane eventKey="third">
               <Row style={rowStyle}>
                 <MyCard header="Leadership" img={leadership}>
-                  <h4 style={{ margin: "4px" }}>BAE Systems - Engineering Leadership Program (ELDP)</h4>
+                  <h4 style={{ margin: "4px" }}>
+                    BAE Systems - Engineering Leadership Program (ELDP)
+                  </h4>
                   <hr></hr>
                   <div style={{ textAlign: "left", marginRight: "1vw" }}>
                     <ul>
                       <li>
                         <p>
-                          <b>ELDP Graduate</b> - Graduated from the BAE Systems three year Leadership Development
-                          program in addition to day to day software developer duties at the company.
+                          <b>ELDP Graduate</b> - Graduated from the BAE Systems three year
+                          Leadership Development program in addition to day to day software
+                          developer duties at the company.
                         </p>
                       </li>
                       <li>
                         <p>
-                          Led multi functional teams at yearly industry wide conferences. Competed to solve technical
-                          problems against tens of other teams from across the country.
+                          Led multi functional teams at yearly industry wide conferences. Competed
+                          to solve technical problems against tens of other teams from across the
+                          country.
                         </p>
                       </li>
                       <li>
                         <p>
-                          Participated in monthly leadership development modules, in addition to weekly classes on
-                          technical topics ranging from control systems testing and development to embedded systems
-                          programming.
+                          Participated in monthly leadership development modules, in addition to
+                          weekly classes on technical topics ranging from control systems testing
+                          and development to embedded systems programming.
                         </p>
                       </li>
                     </ul>
@@ -331,27 +338,31 @@ class IndexCard extends Component {
                   <br></br>
                 </MyCard>
                 <MyCard header="Service" text="pietext" img={shpe}>
-                  <h4 style={{ margin: "4px" }}>Society of Hispanic Professional Engineers (SHPE)</h4>
+                  <h4 style={{ margin: "4px" }}>
+                    Society of Hispanic Professional Engineers (SHPE)
+                  </h4>
                   <hr></hr>
                   <div style={{ textAlign: "left", marginRight: "1vw" }}>
                     <ul>
                       <li>
                         <p>
-                          <b> Director of Community Service</b> - For two years I organized community service outreach
-                          events from cancer walks to flood cleanups and blood drives
+                          <b> Director of Community Service</b> - For two years I organized
+                          community service outreach events from cancer walks to flood cleanups and
+                          blood drives
                         </p>
                       </li>
                       <li>
                         <p>
-                          <b>Webmaster </b> - Developed the website and managed social media platforms for the
-                          Binghamton University chapter of SHPE
+                          <b>Webmaster </b> - Developed the website and managed social media
+                          platforms for the Binghamton University chapter of SHPE
                         </p>
                       </li>
                       <hr></hr>
                       <li>
                         <p>
-                          <b>(Other) Phelps Memorial Hospital </b>- Volunteered at local hospital throughout high school
-                          transporting patients and lab samples as well as onboarding and teaching new volunteers
+                          <b>(Other) Phelps Memorial Hospital </b>- Volunteered at local hospital
+                          throughout high school transporting patients and lab samples as well as
+                          onboarding and teaching new volunteers
                         </p>
                       </li>
                     </ul>
@@ -369,24 +380,25 @@ class IndexCard extends Component {
                       </li>
                       <li>
                         <p>
-                          <b>Entrepreneurship {" & "} Creative Thinking </b> - Deep passion and dedication to
-                          brainstorming and pursuing opportunities that add value to society by means of automation and
-                          through excellent user experiences
+                          <b>Entrepreneurship {" & "} Creative Thinking </b> - Deep passion and
+                          dedication to brainstorming and pursuing opportunities that add value to
+                          society by means of automation and through excellent user experiences
                         </p>
                       </li>
                       <li>
                         <p>
-                          <b>Time Management {" & "} Self Motivation </b> - My passions and ambitions for software
-                          development extend further than 9-5. When I am passionate about a project I will not stop
-                          until it is complete.
+                          <b>Time Management {" & "} Self Motivation </b> - My passions and
+                          ambitions for software development extend further than 9-5. When I am
+                          passionate about a project I will not stop until it is complete.
                         </p>
                       </li>
                       <li>
                         <p>
-                          <b>Adaptability {" & "} Love of Learning </b> - There is no problem or field of study I am
-                          unwilling to tackle. I have a Masters {" & "} Bachelors degree in Computer and Electrical
-                          Engineering but the field of Software Development is one of rapid growth. I am constantly
-                          learning and applying my knowledge of new technologies.
+                          <b>Adaptability {" & "} Love of Learning </b> - There is no problem or
+                          field of study I am unwilling to tackle. I have a Masters {" & "}{" "}
+                          Bachelors degree in Computer and Electrical Engineering but the field of
+                          Software Development is one of rapid growth. I am constantly learning and
+                          applying my knowledge of new technologies.
                         </p>
                       </li>
                     </ul>

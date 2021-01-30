@@ -8,6 +8,10 @@ import leetcode from "./Images/leetcode.png";
 
 class HeadNavBar extends Component {
   render() {
+    const headerLink = {
+      fontSize: "1.2em",
+    };
+
     return (
       // Link to home with href
       <Navbar bg="dark" variant="dark" expand="lg">
@@ -25,11 +29,26 @@ class HeadNavBar extends Component {
         </Navbar.Brand>
         <Navbar.Collapse>
           <Nav className="mr-auto">
-            <Nav.Link href="/"> About Me </Nav.Link>
-            <Nav.Link href="/Resume"> Resume </Nav.Link>
-            <Nav.Link href="/Portfolio"> Portfolio </Nav.Link>
-            <Nav.Link href="/Projects"> Projects </Nav.Link>
-            <Nav.Link href="/Contact"> Contact Me </Nav.Link>
+            <Nav.Link href="/" style={headerLink}>
+              {" "}
+              About Me{" "}
+            </Nav.Link>
+            <Nav.Link href="/Resume" style={headerLink}>
+              {" "}
+              Resume{" "}
+            </Nav.Link>
+            <Nav.Link href="/Portfolio" style={headerLink}>
+              {" "}
+              Portfolio{" "}
+            </Nav.Link>
+            <Nav.Link href="/Projects" style={headerLink}>
+              {" "}
+              Projects{" "}
+            </Nav.Link>
+            <Nav.Link href="/Contact" style={headerLink}>
+              {" "}
+              Contact Me{" "}
+            </Nav.Link>
           </Nav>
           <Nav>
             <Navbar.Brand href="http://www.linkedin.com/in/jose-duque-engineer">

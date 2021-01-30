@@ -12,7 +12,7 @@ class Games extends Component {
   render() {
     const gameContainer = {
       width: "600px",
-      minWidth: "70%",
+      minWidth: "60%",
       maxWidth: "100%",
       margin: "auto",
       backgroundColor: "white",

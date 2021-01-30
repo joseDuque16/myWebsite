@@ -7,6 +7,7 @@ import GamesSnake from "./Games_Snake";
 import TicTacToe from "./TicTacToe";
 import ConnectFour from "./ConnectFour";
 import Tetris from "./Tetris";
+import Sudoku from "./Sudoku";
 
 class GamesSelect extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class GamesSelect extends Component {
   render() {
     const myGamesRow1 = ["TicTacToe", "ConnectFour"];
 
-    const myGamesRow2 = ["Tetris", "Sudoku Solver (Under Construction)"];
+    const myGamesRow2 = ["Tetris", "Sudoku Solver"];
 
     const myGamesRow3 = ["Word Search Solver (Under Construction)", "Snake"];
 
@@ -49,6 +50,10 @@ class GamesSelect extends Component {
 
     const Tetris_Style = {
       display: this.state.page === "Tetris" ? "block" : "none",
+    };
+
+    const Sudoku_Style = {
+      display: this.state.page === "Sudoku Solver" ? "block" : "none",
     };
 
     const createGamesRow = (input, idxInput) => {
@@ -109,6 +114,9 @@ class GamesSelect extends Component {
         </div>
         <div style={Tetris_Style}>
           <Tetris></Tetris>
+        </div>
+        <div style={Sudoku_Style}>
+          <Sudoku></Sudoku>
         </div>
       </div>
     );
