@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./Styles/App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HeadNavBar from "./NavBar";
 import IndexCarousel from "./HomeCarousel";

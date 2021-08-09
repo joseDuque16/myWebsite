@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 import Col from "react-bootstrap/Col";
-import "./App.css";
+import "./Styles/App.scss";
 import IndexCardLink from "./IndexCardLink";
 import languagesPic from "./Images/languages.jpg";
 import frontendPic from "./Images/frontend.jpg";
@@ -13,6 +13,7 @@ import intellogoPic from "./Images/intellogo.png";
 import other from "./Images/other.jpg";
 import shpe from "./Images/shpe.jpg";
 import leadership from "./Images/leadership.jpg";
+import "./Styles/IndexCards.scss";
 
 class MyCard extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class MyCard extends Component {
     };
 
     return (
-      <Col sm>
+      <Col lg>
         <div style={cardStyle} className="indexCardDiv roundedDiv">
           <br></br>
           <img src={this.state.img} style={cardImg} alt={this.state.header}></img>
@@ -70,9 +71,7 @@ class IndexCard extends Component {
     let output = array.map((val, idx, arr) => {
       return (
         <>
-          <h5 style={{ display: "inline" }}>{val} </h5>
-          <br></br>
-          <br></br>
+          <h5 className="IndexCardText">{val}</h5>
         </>
       );
     });
@@ -179,12 +178,10 @@ class IndexCard extends Component {
               <Row style={rowStyle}>
                 <MyCard header="Languages / Other" img={languagesPic} text="">
                   {this.unrollText([
-                    "Javascript, Typescript",
-                    "Java, Python",
+                    "Javascript, Typescript, Java, Python",
                     "Progressive Web Apps",
-                    "Node Package Manager (NPM)",
                     "Continuous Integration  / Continuous Development (CI/CD)",
-                    "Version Control/ Git",
+                    "Scripting & Automation (bash, shell, python)",
                     "Agile Methodologies",
                   ])}
                 </MyCard>
@@ -192,17 +189,15 @@ class IndexCard extends Component {
                   {this.unrollText([
                     "React & React-Native",
                     "Redux",
-                    "HTML/CSS/AJAX",
+                    "HTML/CSS/SASS/AJAX",
                     "Responsive Web Design",
-                    "HTML DOM/ BOM",
-                    "Bootstrap/ React-Bootstrap",
-                    "Agile Methodologies",
+                    "Bootstrap/ UI-Kitten",
                   ])}
                 </MyCard>
                 <MyCard header="Backend" img={backendPic} text="">
                   {this.unrollText([
-                    "MongoDB & SQL Server",
                     "Node & Express",
+                    "MongoDB & SQL Server",
                     "Docker / AWS (Elastic BeanStalk)",
                     "AWS (Amplify  &  S3)",
                     "REST API Development",

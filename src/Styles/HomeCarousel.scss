@@ -11,24 +11,26 @@
 
 .carouselButtons {
   font-size: 1.2em;
-  margin-left: 1vw;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-top: .3em;
+  padding-bottom: .3em;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size:calc(10px + .5vw);
   border-color: lightblue;
 }
 
 .myCaption1,
 .myCaption2,
 .myCaption3 {
-  min-height: 2px;
-  padding: 0.4vw;
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-bottom: 1em;
+  padding-top: 1em;
   margin: auto;
   font-family: Arial;
   text-align: left;
-  background: white;
-  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+  background: rgb(197, 198, 199);
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1));
   border-radius: 1rem;
   z-index: 2;
   backdrop-filter: blur(0.3rem);
@@ -41,28 +43,34 @@
 .myCaption1 p,
 .myCaption2 p,
 .myCaption3 p {
-  font-size: 1.3em;
-  color: white;
+  font-size:calc(10px + .5vw);
+  color: rgb(9, 3, 80);
+}
+
+.myCaptionHighlightText {
+  color: rgb(235, 220, 48);
+  &:hover {
+    color: rgb(9, 3, 80);
+  }
 }
 
 .myCaption1 h1,
 .myCaption2 h1,
 .myCaption3 h1 {
-  font-size: 1.7em;
-  color: white;
+  color: rgb(204, 17, 14);
+  font-size:calc(12px + 1vw);
+  font-weight:bolder;
 }
 .myCaption1 {
-  width: 600px;
+  width: 700px;
   min-width: 50%;
   max-width: 100%;
-  padding-top: 0.8em;
   margin-bottom: 10%;
   margin-top: 5%;
   float: right;
 }
 
 .myCaption2 {
-  padding-top: 0.8vw;
   padding-bottom: 0.8vw;
   margin-bottom: 1vw;
   width: 700px;
@@ -72,7 +80,6 @@
 }
 
 .myCaption3 {
-  padding-top: 0.8vw;
   padding-bottom: 0.8vw;
   margin-bottom: 1vw;
   width: 620px;

@@ -1,15 +1,12 @@
 import Carousel from "react-bootstrap/Carousel";
-import React, { Component } from "react";
+import React from "react";
 import mtFujiPic from "./Images/mtfuji2.jpg";
 import barcelonaPic from "./Images/barcelona2.jpg";
 import niagraPic from "./Images/niagra2.jpg";
 import Button from "react-bootstrap/Button";
-import "./HomeCarousel.css";
-import { useWindowSize } from "./useWindowSize";
+import "./Styles/HomeCarousel.scss";
 
-function IndexCarousel() {
-  const size = useWindowSize();
-
+const IndexCarousel = () => {
   return (
     <div>
       <Carousel height="50vh">
@@ -17,12 +14,11 @@ function IndexCarousel() {
           <img className="carouselImageLeft d-block w-100" src={niagraPic} alt="Third slide" />
           <Carousel.Caption>
             <div className="myCaption1">
-              <h1>Welcome,</h1>
+              <h1 className="myCaptionHighlightText">About me,</h1>
               <div>
                 <p>
                   {" "}
-                  I am a Senior Software Engineer interested in automation, artificial intelligence,
-                  and maximizing user experiences. I also love traveling <span>&#128747;</span>
+                  Senior Full Stack Developer. <b className="myCaptionHighlightText">Masters in Computer Engineering</b>. Specialized in <b className="myCaptionHighlightText">React</b>, <b className="myCaptionHighlightText">React Native</b>, <b className="myCaptionHighlightText">Node</b>, <b className="myCaptionHighlightText">Express</b>.
                 </p>
                 <Button className="carouselButtons" variant="primary">
                   <a href="#bottom" style={{ color: "white" }}>
@@ -46,8 +42,7 @@ function IndexCarousel() {
             <div className="myCaption2">
               <h1>Full Stack Developer</h1>
               <p>
-                I have a masters in computer engineering as well as a diverse technical background
-                at all stages of the software lifecycle
+                Extensive knowledge of software development life cycle. Diverse experience across languages and frameworks.
               </p>
               <Button href="/Portfolio" className="carouselButtons" variant="info">
                 Interactive Portfolio
