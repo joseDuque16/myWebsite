@@ -18,7 +18,7 @@ const IndexCarousel = () => {
               <div>
                 <p>
                   {" "}
-                  Senior Full Stack Developer. <b className="myCaptionHighlightText">Masters in Computer Engineering</b>. Specialized in <b className="myCaptionHighlightText">React</b>, <b className="myCaptionHighlightText">React Native</b>, <b className="myCaptionHighlightText">Node</b>, <b className="myCaptionHighlightText">Express</b>.
+                  Senior Full Stack Developer. <b className="myCaptionHighlightText">Masters in Computer Engineering</b>. Specialized in <b className="myCaptionHighlightText">React</b>, <b className="myCaptionHighlightText">React Native</b>, <b className="myCaptionHighlightText">Node</b>, <b className="myCaptionHighlightText">Express</b>, <b className="myCaptionHighlightText">SQL{' & '}NoSQL</b>
                 </p>
                 <Button className="carouselButtons" variant="primary">
                   <a href="#bottom" style={{ color: "white" }}>

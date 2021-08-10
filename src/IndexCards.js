@@ -9,6 +9,7 @@ import languagesPic from "./Images/languages.jpg";
 import frontendPic from "./Images/frontend.jpg";
 import backendPic from "./Images/backend.jpg";
 import baelogoPic from "./Images/baelogo.png";
+import growersLogo from "./Images/growersLogo.png";
 import intellogoPic from "./Images/intellogo.png";
 import other from "./Images/other.jpg";
 import shpe from "./Images/shpe.jpg";
@@ -209,27 +210,23 @@ class IndexCard extends Component {
           <Tab.Content style={tabContainer}>
             <Tab.Pane eventKey="second">
               <Row style={rowStyle}>
-                <MyCard header="BAE - Proposal Lead" text="pietext" img={baelogoPic}>
-                  <h4>Sept 2019- Sept 2020</h4>
+                <MyCard header="Growers - Full Stack Developer" text="pietext" img={growersLogo}>
+                  <h4>Feb 2021 - Present</h4>
                   <hr></hr>
                   <div style={{ textAlign: "left", marginRight: "1vw" }}>
                     <ul>
                       <li>
                         <p>
-                          Lead multi-functional commercial and government/military proposals
-                          consisting of engineers, managers, cost estimators, contracts, and
-                          operations personnel as part of the Engineering New Business team.{" "}
+                          Building front end and backend web {"&"} mobile application for agricultulral technology 
+                          startup. Stack built using Node/Express, React/React Native, and SQL/Sequelize. Work broadly
+                          across front end and backend developing new features, refactoring code, and resolving bugs.
                         </p>
                       </li>
                       <li>
                         <p>
                           {" "}
-                          Responsible for proposal schedule generation and management, management of
-                          proposal technical and management volumes, finding resource staffing with
-                          management and providing leadership to the bid team, closing knowledge
-                          gaps, managing and generating cost roll-ups for formal ROM submittals and
-                          FFP submittals, and making technical presentations to managers and
-                          directors.{" "}
+                          Front end library primarily built with UI-Kitten, as well as many custom built components.
+                          Backend database built using custom SQL scripts and Sequelize ORM.{" "}
                         </p>
                       </li>
                     </ul>
@@ -237,7 +234,7 @@ class IndexCard extends Component {
                   </div>
                 </MyCard>
                 <MyCard header="BAE - Software Engineer 2" text="pietext" img={baelogoPic}>
-                  <h4>Oct 2016- Aug 2019</h4>
+                  <h4>Oct 2016 - Sept 2020</h4>
                   <hr></hr>
                   <div style={{ textAlign: "left", marginRight: "1vw" }}>
                     <ul>
@@ -277,7 +274,7 @@ class IndexCard extends Component {
                   </div>
                 </MyCard>
                 <MyCard header="Intel - Linux Kernel Developer" img={intellogoPic} text="pietext">
-                  <h4>June 2015- August 2015</h4>
+                  <h4>June 2015 - August 2015</h4>
                   <hr></hr>
                   <div style={{ textAlign: "left", marginRight: "1vw" }}>
                     <ul>
