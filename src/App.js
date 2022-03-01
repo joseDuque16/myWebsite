@@ -9,6 +9,7 @@ import Resume from "./Resume";
 import Form from "./Form";
 import Games from "./Games";
 import Projects from "./Projects";
+import Melitza from "./Melitza";
 
 class App extends Component {
   constructor(props) {
@@ -39,6 +40,9 @@ class App extends Component {
           </Route>
           <Route path="/Projects">
             <Projects bgcolor="#f7e9c5"></Projects>
+          </Route>
+          <Route path="/Melitza">
+            <Melitza bgcolor="#f7e9c5"></Melitza>
           </Route>
         </Router>
         <Footer />
