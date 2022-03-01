@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import unbeatable from "./Images/unbeatable.jpg";
-import justus from "./Images/justus.jpg";
-import convergence from "./Images/convergence.jpg";
 import hiking from "./Images/hiking.jpg";
 import train from "./Images/train.jpg";
 import hill from "./Images/hill.jpg";
