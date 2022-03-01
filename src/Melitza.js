@@ -4,6 +4,13 @@ import Col from "react-bootstrap/Col";
 import unbeatable from "./Images/unbeatable.jpg";
 import justus from "./Images/justus.jpg";
 import convergence from "./Images/convergence.jpg";
+import hiking from "./Images/hiking.jpg";
+import train from "./Images/train.jpg";
+import hill from "./Images/hill.jpg";
+import regret from "./Images/regret.jpg";
+import together from "./Images/together.jpg";
+import another from "./Images/another.jpg";
+import truth from "./Images/truth.jpg";
 import Container from "react-bootstrap/Container";
 
 class Projects extends Component {
@@ -74,13 +81,13 @@ class Projects extends Component {
                   left="true"
                   qualifier=""
                   title="Meli..."
-                  image={convergence}
+                  image={hiking}
                   text="I came to spain last August in the months after having finally concluded a five year relationship. 
                   I was deeply unhappy with myself and with my life and was seeking a fresh start. To find the happiness 
                   i did not think was possible after so many years. I made several friends and began the process of healing and
                   of growing. In that process i saw the beauty of self love and of friendship. It was through that friendship that
                   I met you. The first time i saw you i did not think much except that you had a great energy and beautiful eyes.
-                  Even though i knew i would inevitably have to come back i asked Kati to indroduce us. That first day in the club
+                  Even though i knew i would inevitably have to leave to the US i asked Kati to introduce us. That first day in the club
                   and our second date at the 'best pasta in madrid' that i promised you were incredible. And every date after i knew
                   that you and I were compatible and had a great chemistry. I loved how witty you were, how quirky and playful you were,
                   your smile and your english-colombian accent. At the time I did not think i wanted a long term relationship since 
@@ -91,15 +98,15 @@ class Projects extends Component {
                 <this.createProject
                   left="false"
                   title="Return to reality"
-                  image={unbeatable}
+                  image={train}
                   qualifier=""
                   text="The last month i was with you i was riding high. You taught me that i could love again and that i did not have
                   issues with commitment. That I had found somebody truly compatible who i could see myself long term. But seeing that reality
-                  in mallorca and then realizing it would all come to an end and that the cycle of saying goodby would have to repeat over and over because
+                  in mallorca and then realizing it would all come to an end and that the cycle of saying goodbye would have to repeat over and over because
                   I did not have permission to stay in the EU long term made me pensive and depressed again. I tried to talk myself into thinking
                   that our relationship would survive and that i loved you enough to make it happen but when i got back to the states the reality of
                   the situation without any concrete evidence that i could live in europe took a toll on our relationship. After our breakup I was in a 
-                  dark place, but having you to talk to, even as just friends gave me some happiness. But the truth is i was in a dark place, to have
+                  dark place, but having you to talk to, even as just friends gave me some happiness. But the truth is i was feeling down, to have
                   met someone i deeply cared for and wanted a future with, and to have that taken away because of where i lived. After months of this
                   sadness i began to accept the situation we were in. And then i flew to Colombia."
                 ></this.createProject>
@@ -107,7 +114,7 @@ class Projects extends Component {
                 <this.createProject
                   left="true"
                   title="My deepest regret"
-                  image={justus}
+                  image={regret}
                   qualifier=""
                   text="After a week of being in Colombia i began to see that i had not moved on, that my heart still longed for you and that just being friends
                   with you would not fill the void, that it even hurt more because i knew the inevitability of our relationship being at the mercy of
@@ -115,16 +122,16 @@ class Projects extends Component {
                   of dating somebody for the last three weeks before i flew back to spain. This is my deepest regret. Not that i tried to open my heart, but that i knew that i was not ready because i still
                   loved you. That my heart had not healed and that i was only looking for a temporary solution, and that the temporary solution only hurt
                   more because i would inevitably have to break someones heart because I could not love them. A week and a half before i came to colombia
-                  I visited my aunt who told me that they had the geneological study proving that we were jewish, and that my uncle had already begun the application
+                  I visited my aunt who told me that they had the geneological study proving that we were jewish, and that my cousin had already begun the application
                   on behalf of himself and his mom. This turned my world upside down. I scrambled to setup a meeting with the lawyers and to get them to accept my
                   case. When they finally did and i had payed them and i received the letter from the jewish community that they were reviewing my geneological paperwork,
-                  my heart felt hope once again, that the universe was allowing me to pursue the person i loved, all i had to do was grasp for it."
+                  my heart felt hope once again, that the universe was allowing me to pursue love, all i had to do was grasp for it."
                 ></this.createProject>
                 <br></br>
                 <this.createProject
                   left="true"
                   title="Return to bliss"
-                  image={justus}
+                  image={together}
                   qualifier=""
                   text="I came back to spain with a mission. I came back to spain for you. I had what i needed to prove that this relationship could work,
                   that the temporary distance would not break us because we had a light at the end of the tunnel. The first
@@ -139,12 +146,12 @@ class Projects extends Component {
                 <this.createProject
                   left="true"
                   title="The truth"
-                  image={justus}
+                  image={truth}
                   qualifier=""
                   text="I did not have to text this person the first time i kissed you, i had to text them immediately when the lawyer accepted my case because my heart
                   was already in spain with you at that moment. You noticed something was off that night. And you were right. I had a heavy heart because for the past two weeks
                   i knew that I had to break it to them. The truth is that i needed a push to help me do it, as i have not broken up with many people over the
-                  course of my life. Its a talent i never learned because my first girlfriend was at 21 and the only person who i have broken up with, I only did after months
+                  course of my life. Its a talent i never learned because my first kiss, let alone girlfriend was at 21 and the only person who i have broken up with, I only did after months
                   of therapy. I did not want to tell you for fear of hurting you, but in that moment i thought that maybe you could help me push through it. Im sorry, if i knew the cost
                   of that push would be our relationship i would of done it a million times over on my own."
                 ></this.createProject>
@@ -152,7 +159,7 @@ class Projects extends Component {
                 <this.createProject
                   left="true"
                   title="Together again?"
-                  image={justus}
+                  image={hill}
                   qualifier="(option A)"
                   text="I'm sorry that i made you feel the way i did. I hate being a bad guy and that fear caused me to potentially lose the person i truly love. If you chose to forgive me and
                   let me back into your life i promise that I will never put you in a position like that again. I promise that even in my most insecure i will continue to love and cherish
@@ -165,7 +172,7 @@ class Projects extends Component {
                 <this.createProject
                   left="true"
                   title="Another future"
-                  image={justus}
+                  image={another}
                   qualifier="(option B)"
                   text="I deeply hope you chose option A. But if you chose to let our story together end here, then i just want you to know that i'm deeply sorry and that I hope that you at least understand. You
                   are an incredible person who has changed my life. You showed me a happiness that i did not know was possible, took me to incredible places and showed me
