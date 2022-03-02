@@ -174,7 +174,7 @@ class Projects extends Component {
                   text="I deeply hope that you will give me that chance. But if you chose to let our story together end here, then i just want you to know that i'm deeply sorry and that I hope that you at least understand. You
                   are an incredible person who has changed my life. I want you to know you matter and that you touched my life in a positive way. You showed me a happiness that i did not know was possible, took me to incredible places and showed me
                   a life that i did not know i could live. You are beautiful, talented, loving, passionate, artistic, fun, outgoing (more than you think), and more.
-                  I want you to know that i wish the absolute best for you and i know the man whom you chose, will be the luckiest man in the world."
+                  I want you to know that i wish the absolute best for you and i know the man whom you choose, will be the luckiest man in the world."
                 ></this.createProject>
                 <br></br>
               </div>
