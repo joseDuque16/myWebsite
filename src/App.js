@@ -41,9 +41,9 @@ class App extends Component {
           <Route path="/Projects">
             <Projects bgcolor="#f7e9c5"></Projects>
           </Route>
-          <Route path="/Melitza">
-            <Melitza bgcolor="#f7e9c5"></Melitza>
-          </Route>
+          {/* <Route path="/Melitza">
+            <Melitza bgcolor="pink"></Melitza>
+          </Route> */}
         </Router>
         <Footer />
       </div>
